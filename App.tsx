@@ -47,7 +47,7 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // Persistence: Save on slide change
+  // Persistence: Save on slides change
   useEffect(() => {
     const dataToSave: Record<number, { imageUrl?: string, generatedImageUrl?: string }> = {};
     slides.forEach(s => {
@@ -61,6 +61,40 @@ const App: React.FC = () => {
 
   const updateSlideImage = (id: number, url: string) => {
     setSlides(prev => prev.map(s => s.id === id ? { ...s, imageUrl: url, generatedImageUrl: undefined } : s));
+  };
+
+  const exportData = () => {
+    const data = JSON.stringify(slides.map(s => ({ id: s.id, imageUrl: s.imageUrl, generatedImageUrl: s.generatedImageUrl })));
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'slideshow_config.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const importData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const imported = JSON.parse(event.target?.result as string);
+        setSlides(prev => prev.map(slide => {
+          const match = imported.find((i: any) => i.id === slide.id);
+          if (match) {
+            return { ...slide, imageUrl: match.imageUrl, generatedImageUrl: match.generatedImageUrl };
+          }
+          return slide;
+        }));
+        setErrorMsg("Configuration imported successfully!");
+        setTimeout(() => setErrorMsg(null), 3000);
+      } catch (err) {
+        setErrorMsg("Failed to import configuration.");
+      }
+    };
+    reader.readAsText(file);
   };
 
   const generateImageWithRetry = async (index: number, retryCount = 0): Promise<void> => {
@@ -314,7 +348,7 @@ const App: React.FC = () => {
               </button>
             </div>
             
-            <div className="p-4 bg-slate-50">
+            <div className="p-4 bg-slate-50 space-y-3">
               <div className="relative">
                 <input 
                   type="text" 
@@ -324,6 +358,21 @@ const App: React.FC = () => {
                   onChange={(e) => setAdminSearch(e.target.value)}
                 />
                 <svg className="absolute left-3 top-2.5 text-slate-400" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </div>
+              
+              <div className="flex gap-2">
+                <button 
+                  onClick={exportData}
+                  className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Export Config
+                </button>
+                <label className="flex-1 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  Import Config
+                  <input type="file" accept=".json" onChange={importData} className="hidden" />
+                </label>
               </div>
             </div>
 
@@ -379,10 +428,10 @@ const App: React.FC = () => {
       {/* Error Toast */}
       {errorMsg && (
         <div className="fixed bottom-24 left-6 z-[80] animate-in fade-in slide-in-from-bottom-4 duration-300">
-          <div className="bg-red-500 text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-red-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div className="bg-slate-900/90 backdrop-blur text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span className="text-sm font-bold">{errorMsg}</span>
-            <button onClick={() => setErrorMsg(null)} className="ml-2 hover:text-red-200">
+            <button onClick={() => setErrorMsg(null)} className="ml-2 hover:text-slate-300">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
           </div>
@@ -466,4 +515,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-    
