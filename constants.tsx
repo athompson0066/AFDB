@@ -1,5 +1,5 @@
 
-import { SlideData } from './types';
+import { SlideData } from './types.ts';
 
 export const SLIDES: SlideData[] = [
   {
@@ -9,13 +9,13 @@ export const SLIDES: SlideData[] = [
     subtitle: 'Affordable Device Financing Model Project',
     author: 'Report by CG&R Strategy LLC / Moharram & Partners',
     date: '1/08/2026',
-    imageUrl: 'https://picsum.photos/seed/africa-tech-1/1200/800'
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/11/Literacy-affordability-slow-growth-of-global-mobile-internet-users-as-population-reaches-4.6-billion-1.jpg'
   },
   {
     id: 1,
     type: 'content',
     title: 'Glossary of Terms',
-    imageUrl: 'https://picsum.photos/seed/glossary/800/1000',
+    imageUrl: 'https://www.webhaptic.com/wp-content/uploads/2023/10/image-2.png',
     sections: [
       {
         content: [
@@ -42,7 +42,7 @@ export const SLIDES: SlideData[] = [
     id: 2,
     type: 'content',
     title: '1.1 Project Background',
-    imageUrl: 'https://picsum.photos/seed/intro-6/800/1000',
+    imageUrl: 'https://eu-images.contentstack.com/v3/assets/blta47798dd33129a0c/blt7b52930f48cbfb17/66d7688eb61079061284408d/767358-6843.jpg',
     sections: [
       {
         heading: 'Background and Objectives',
@@ -54,7 +54,7 @@ export const SLIDES: SlideData[] = [
     id: 3,
     type: 'content',
     title: '1.2 Rationale for Financing',
-    imageUrl: 'https://picsum.photos/seed/rationale/800/1000',
+    imageUrl: 'https://assets.sunnewsonline.com/2018/09/CELL-PHONES-1.jpg',
     sections: [
       {
         content: 'The digital landscape itself is evolving rapidly. 4G is expected to reach about half of all mobile connections by 2030, while early 50 deployments will begin adding an estimated $10 billion in annual economic value. However, those gains depend on affordable, capable devices reaching first-time users rather than remaining concentrated among urban elites. At the same time, the price of connectivity has declined globally, yet Africa’s data and device costs remain among the highest relative to average consumer income.'
@@ -65,7 +65,7 @@ export const SLIDES: SlideData[] = [
     id: 4,
     type: 'content',
     title: '1.3 Why Nigeria as Pilot',
-    imageUrl: 'https://picsum.photos/seed/nigeria-pilot/800/1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/08/5.jpg',
     sections: [
       {
         content: 'Nigeria provides an ideal starting point for such intervention. It is Africa’s largest smartphone market and one of its most dynamic digital economies, yet the country still has more than 80 million unconnected adults. It has a relatively low cost of mobile data at about $0.38 per 1 gigabyte (on par with China, Brazil and Ghana) and yet it has one of the lowest mobile data consumption per capita. This suggests that there is head room for driving significantly more smartphone adoption even at current mobile data costs.'
@@ -76,7 +76,7 @@ export const SLIDES: SlideData[] = [
     id: 5,
     type: 'content',
     title: '1.4 Program Objectives',
-    imageUrl: 'https://picsum.photos/seed/objectives-2/800/1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/09/portrait-of-handsome-african-man-holding-mobile-ph-2023-08-11-20-53-39-utc-scaled.jpg',
     sections: [
       {
         heading: 'Target Outcomes',
@@ -88,7 +88,7 @@ export const SLIDES: SlideData[] = [
     id: 6,
     type: 'content',
     title: '2. Scope and Workstreams',
-    imageUrl: 'https://picsum.photos/seed/scope-structure/800/1000',
+    imageUrl: 'https://www.conexusmedstaff.com/wp-content/uploads/2024/11/Taimaka.png',
     sections: [
       {
         heading: '2.1 Overview of Workstreams',
@@ -105,7 +105,7 @@ export const SLIDES: SlideData[] = [
     id: 7,
     type: 'content',
     title: '3. Data & Methodology',
-    imageUrl: 'https://picsum.photos/seed/methodology-2/800/1000',
+    imageUrl: 'https://c76c7bbc41.mjedge.net/wp-content/uploads/tc/2020/04/three_men_using_mobile_phones.jpg',
     sections: [
       {
         heading: '3.1 Secondary Data Sources',
@@ -121,7 +121,7 @@ export const SLIDES: SlideData[] = [
     id: 8,
     type: 'content',
     title: '4.1 Context & Economic Imperative',
-    imageUrl: 'https://picsum.photos/seed/economic/800/1000',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZ7rFxKhx_67EsJ2fHD_6wc3RgpnI4S2_Jg&s',
     sections: [
       {
         content: 'Africa faces a critical connectivity deficit. Internet usage is at 38%, significantly below the global average of 68%. High-income countries in comparison are at 93%. Closing this gap is not just a social goal but a fundamental economic imperative.'
@@ -140,7 +140,7 @@ export const SLIDES: SlideData[] = [
     id: 9,
     type: 'content',
     title: '4.2 Coverage vs Usage Gap',
-    imageUrl: 'https://picsum.photos/seed/usagegap/800/1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2019/11/man-with-mobile-phone.jpg',
     sections: [
       {
         heading: 'Figure 1: Largest Broadband Usage Gap',
@@ -165,7 +165,7 @@ export const SLIDES: SlideData[] = [
     id: 10,
     type: 'content',
     title: '4.3.1 Affordability',
-    imageUrl: 'https://picsum.photos/seed/affordability/800/1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2025/01/Nigerians-Mobile-Network-Affordability.jpg',
     sections: [
       {
         content: 'The average 4G smartphone in SSA costs $71. In contrast, a feature phone is 10 times cheaper at $6. $71 is about 80-90% of the average monthly income for the poorest 20% in Sub-Saharan Africa. Only about 10% of the working age population in Nigeria meets the income threshold for outright purchase.'
@@ -180,7 +180,7 @@ export const SLIDES: SlideData[] = [
     id: 11,
     type: 'content',
     title: '4.3.2 Literacy & 4.3.3 Gender',
-    imageUrl: 'https://picsum.photos/seed/literacy/800/1000',
+    imageUrl: 'https://mediaserver.responsesource.com/press-release/132321/OYA_DEVICE_SCREEN_08.jpg',
     sections: [
       {
         heading: 'Language Barriers',
@@ -196,7 +196,7 @@ export const SLIDES: SlideData[] = [
     id: 12,
     type: 'content',
     title: '4.3.4 Cost of Mobile Data',
-    imageUrl: 'https://picsum.photos/seed/data-cost/800/1000',
+    imageUrl: 'https://dailypost.ng/wp-content/uploads/2022/05/telephone-.jpeg',
     sections: [
       {
         heading: 'Figure 2: Cost of 1GB Data Worldwide',
@@ -222,7 +222,7 @@ export const SLIDES: SlideData[] = [
     id: 13,
     type: 'content',
     title: 'Table 1: Policy Call Outs',
-    imageUrl: 'https://picsum.photos/seed/policycall/800/1000',
+    imageUrl: 'https://newsverge.com/wp-content/uploads/2019/07/mobile-phones.jpg',
     sections: [
       {
         heading: 'Strategic Interventions',
@@ -238,7 +238,7 @@ export const SLIDES: SlideData[] = [
     id: 14,
     type: 'content',
     title: '5. Regional Prioritization',
-    imageUrl: 'https://images.unsplash.com/photo-1541364983171-a8ba01d95cfc?q=80&w=1974&auto=format&fit=crop',
+    imageUrl: 'https://static.news.bitcoin.com/wp-content/uploads/2022/01/shutterstock_1769153516.jpg',
     sections: [
       {
         heading: 'Table 2: Regional Investment Priorities',
@@ -253,7 +253,7 @@ export const SLIDES: SlideData[] = [
     id: 15,
     type: 'content',
     title: 'Table 3: Use Cases Overview',
-    imageUrl: 'https://picsum.photos/seed/casestudy-overview/800/1000',
+    imageUrl: 'https://xplicitmode.com/wp-content/uploads/2024/11/using-voice-commands-on-a-smartphone.jpg',
     sections: [
       {
         heading: 'Summary of Solutions',
@@ -270,7 +270,7 @@ export const SLIDES: SlideData[] = [
     id: 16,
     type: 'content',
     title: '6.3 Intelligra Case Study',
-    imageUrl: 'https://picsum.photos/seed/intelligra-case/800/1000',
+    imageUrl: 'https://cdnph.upi.com/svc/sv/upi_com/4841656330256/2022/1/abb69d015c048b25ee9dbce450bc38f1/Silencing-smartphone-leads-to-more-stress-for-many-people.jpg',
     sections: [
       {
         heading: '6.3.1 Business Model',
@@ -290,7 +290,7 @@ export const SLIDES: SlideData[] = [
     id: 17,
     type: 'content',
     title: '6.4 Yellow Solar Case Study',
-    imageUrl: 'https://picsum.photos/seed/yellow-case/800/1000',
+    imageUrl: 'https://nigeriancurrent.com/wp-content/uploads/2023/08/Phone-chat-1280x720-1.jpg',
     sections: [
       {
         heading: '6.4.1 Business Model',
@@ -310,7 +310,7 @@ export const SLIDES: SlideData[] = [
     id: 18,
     type: 'content',
     title: '6.5 MTN Nigeria Case Study',
-    imageUrl: 'https://picsum.photos/seed/mtn-case/800/1000',
+    imageUrl: 'https://woodcocknotarypublic.com/wp-content/uploads/Nigerian-SIM-card-post.webp',
     sections: [
       {
         heading: '6.5.1 Business Model',
@@ -330,7 +330,7 @@ export const SLIDES: SlideData[] = [
     id: 19,
     type: 'content',
     title: '6.5.3 Behavioral Insights',
-    imageUrl: 'https://picsum.photos/seed/behavioral/800/1000',
+    imageUrl: 'https://media.licdn.com/dms/image/v2/D4D12AQFJl5C10FbmTQ/article-cover_image-shrink_720_1280/B4DZozvn89IMAI-/0/1761804719533?e=2147483647&v=beta&t=f2Z-HrkDqJRE-W7Lnt6Iv5gmQNLZ8WVpMB7BonU2Gic',
     sections: [
       {
         heading: 'Unique Behaviors Observed',
@@ -342,7 +342,7 @@ export const SLIDES: SlideData[] = [
     id: 20,
     type: 'content',
     title: '6.6 Leadway Assurance',
-    imageUrl: 'https://picsum.photos/seed/leadway-case/800/1000',
+    imageUrl: 'https://cdn.guardian.ng/wp-content/uploads/2022/03/SHAREit-Lite-Image-for-PR9.jpg',
     sections: [
       {
         heading: '6.6.1 Overview',
@@ -358,7 +358,7 @@ export const SLIDES: SlideData[] = [
     id: 21,
     type: 'content',
     title: 'Table 4: Leadway Partner Roles',
-    imageUrl: 'https://picsum.photos/seed/leadway-roles/800/1000',
+    imageUrl: 'https://www.geopoll.com/wp-content/uploads/2021/04/woman-showing-phone_small_2.jpg',
     sections: [
       {
         heading: 'Value Proposition Matrix',
@@ -375,7 +375,7 @@ export const SLIDES: SlideData[] = [
     id: 22,
     type: 'content',
     title: '7. Lessons for Pilot Design',
-    imageUrl: 'https://picsum.photos/seed/lessons-pilot/800/1000',
+    imageUrl: 'https://www.tekedia.com/wp-content/uploads/2022/06/mobile-cash-phone-fintech-768x576.jpg',
     sections: [
       {
         heading: '7.1 Cross Cutting Insights',
@@ -396,7 +396,7 @@ export const SLIDES: SlideData[] = [
     id: 23,
     type: 'content',
     title: '8.1 Adoption Targets',
-    imageUrl: 'https://picsum.photos/seed/targets/800/1000',
+    imageUrl: 'https://naijalifemagazine.com/blog/wp-content/uploads/2018/03/84-OF-NIGERIANS-NOW-USE-MOBILE-PHONE-%E2%80%93-REPORT.jpg',
     sections: [
       {
         heading: 'Market Sizing',
@@ -408,7 +408,7 @@ export const SLIDES: SlideData[] = [
     id: 24,
     type: 'content',
     title: 'Table 5: Minimum Specs',
-    imageUrl: 'https://picsum.photos/seed/specs-2/800/1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/11/black-woman-typing-on-mobile-phone-during-night-2023-08-11-18-03-01-utc-1024x683.jpg',
     sections: [
       {
         heading: '8.2.1 Desirable Specifications',
@@ -425,7 +425,7 @@ export const SLIDES: SlideData[] = [
     id: 25,
     type: 'content',
     title: 'Table 6: DDI Analysis',
-    imageUrl: 'https://picsum.photos/seed/ddi-table/800/1000',
+    imageUrl: 'https://www.dhl.com/discover/adobe/dynamicmedia/deliver/dm-aid--bedc2cf4-3af6-41ba-8120-882cf6d77248/what-this-means-for-businesses.png?preferwebp=true&quality=82',
     sections: [
       {
         heading: '8.2.3 Disposable Income % Required',
@@ -442,7 +442,7 @@ export const SLIDES: SlideData[] = [
     id: 26,
     type: 'content',
     title: 'Table 7: Payback period',
-    imageUrl: 'https://picsum.photos/seed/payback-chart/800/1000',
+    imageUrl: 'https://img.freepik.com/free-photo/person-reading-cell-phone-messages_23-2150409981.jpg?semt=ais_hybrid&w=740&q=80',
     sections: [
       {
         heading: 'Number of Days @ 10% DDI',
@@ -466,7 +466,7 @@ export const SLIDES: SlideData[] = [
     id: 27,
     type: 'content',
     title: '8.3 Supply-Side Success',
-    imageUrl: 'https://picsum.photos/seed/supply-side/800/1000',
+    imageUrl: 'https://img.globalcitizen.org/OKvWYJ-xbw4mRN-ZcEtGLZKxidgaRgQLLTKaRx5D/1600x900%2Ffilters%3Aquality%2885%29%3Afocal%28615%2C410%29%2Fhttps%3A%2F%2Fmedia.globalcitizen.org%2F9f%2F4d%2F9f4d1e5f-f859-4dba-8a80-d104c098187e%2F1230.jpeg',
     sections: [
       {
         content: [
@@ -483,7 +483,7 @@ export const SLIDES: SlideData[] = [
     id: 28,
     type: 'content',
     title: '9.1 Model 1: Blended Finance',
-    imageUrl: 'https://picsum.photos/seed/model-1/800/1000',
+    imageUrl: 'https://img.globalcitizen.org/SKvbUWKmTU76MrP_exggwCW5U2cmwxwLZonMnUhU/1600x900%2Ffilters%3Aquality%2885%29%3Afocal%281500%2C600%29%2Fhttps%3A%2F%2Fmedia.globalcitizen.org%2Fd3%2F49%2Fd349fddc-30d5-4483-a941-9d260d76f161%2Frawpixel-woman-using-phone-unsplash-hero.jpg',
     sections: [
       {
         heading: 'BNPL Model',
@@ -499,7 +499,7 @@ export const SLIDES: SlideData[] = [
     id: 29,
     type: 'content',
     title: 'Table 8: Model 1 Risks',
-    imageUrl: 'https://picsum.photos/seed/risks-m1-2/800/1000',
+    imageUrl: 'https://arkesel.com/wp-content/uploads/2024/09/83357.jpg',
     sections: [
       {
         heading: 'Mitigation Strategies',
@@ -516,7 +516,7 @@ export const SLIDES: SlideData[] = [
     id: 30,
     type: 'content',
     title: '9.2 Model 2: Smartphone-as-a-Service',
-    imageUrl: 'https://picsum.photos/seed/model-2/800/1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2025/08/telecom-6.png',
     sections: [
       {
         heading: 'Subscription Model',
@@ -532,7 +532,7 @@ export const SLIDES: SlideData[] = [
     id: 31,
     type: 'content',
     title: 'Table 9: Model 2 Risks',
-    imageUrl: 'https://picsum.photos/seed/risks-m2-2/800/1000',
+    imageUrl: 'https://thebest.credit/wp-content/uploads/2025/08/cover-image-cover-1.png',
     sections: [
       {
         heading: 'Mitigation Strategies',
@@ -549,7 +549,7 @@ export const SLIDES: SlideData[] = [
     id: 32,
     type: 'content',
     title: '10. Roll-Out Strategy',
-    imageUrl: 'https://picsum.photos/seed/rollout-logic/800/1000',
+    imageUrl: 'https://d27735ao2xxhhe.cloudfront.net/blog/pro/money-transfer-shortcut-every-nigerian-in-malta-should-know-600x400692da57f2352e1764599167.png',
     sections: [
       {
         heading: '10.1 Coverage-Led Logic',
@@ -565,7 +565,7 @@ export const SLIDES: SlideData[] = [
     id: 33,
     type: 'content',
     title: 'Table 10: Pilot Group 1',
-    imageUrl: 'https://picsum.photos/seed/group-1/800/1000',
+    imageUrl: 'https://oneacrefund.org/sites/default/files/styles/banner_large_desktop/public/2025-09/KEN_6954%20%281%29.jpg?h=edb91006&itok=ghPXu-KO',
     sections: [
       {
         heading: 'High Coverage, Low Penetration',
@@ -585,7 +585,7 @@ export const SLIDES: SlideData[] = [
     id: 34,
     type: 'content',
     title: 'Table 11: Pilot Group 2',
-    imageUrl: 'https://picsum.photos/seed/group-2/800/1000',
+    imageUrl: 'https://babbangona.com/wp-content/uploads/2025/05/image_fx-31--768x419.jpg',
     sections: [
       {
         heading: '3G-Dominant States',
@@ -605,7 +605,7 @@ export const SLIDES: SlideData[] = [
     id: 35,
     type: 'content',
     title: 'Youth & Sector Targeting',
-    imageUrl: 'https://picsum.photos/seed/youth-target-2/800/1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/07/a-young-beautiful-african-market-woman-feeling-hap-2022-12-22-23-45-51-utc-scaled.jpeg',
     sections: [
       {
         heading: '10.5 Mobility & Workforce',
@@ -617,7 +617,7 @@ export const SLIDES: SlideData[] = [
     id: 36,
     type: 'content',
     title: 'Table 12: Governance',
-    imageUrl: 'https://picsum.photos/seed/governance-table/800/1000',
+    imageUrl: 'https://i.natgeofe.com/n/fbbf43be-ed2f-4918-8d37-41d3b0d46dcb/02cellphonesfarmer.jpg',
     sections: [
       {
         heading: 'Hub and Spokes Framework',
@@ -635,7 +635,7 @@ export const SLIDES: SlideData[] = [
     id: 37,
     type: 'content',
     title: 'Portfolio Guarantee Stack',
-    imageUrl: 'https://picsum.photos/seed/guarantee-stack/800/1000',
+    imageUrl: 'https://qz.com/cdn-cgi/image/width=1920,quality=85,format=auto/https://assets.qz.com/media/f4bed222a47062c42ef0d27563ca6931.jpg',
     sections: [
       {
         heading: 'Risk Layering',
@@ -652,7 +652,7 @@ export const SLIDES: SlideData[] = [
     id: 38,
     type: 'content',
     title: 'Appendices',
-    imageUrl: 'https://picsum.photos/seed/biblio-figures/800/1000',
+    imageUrl: 'https://images.pexels.com/photos/33418517/pexels-photo-33418517/free-photo-of-nigerian-man-in-traditional-attire-using-phone-outdoors.jpeg',
     sections: [
       {
         heading: 'Bibliography & Figures',
