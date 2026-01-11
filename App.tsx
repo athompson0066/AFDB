@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { GoogleGenAI } from "@google/genai";
-import { SLIDES as INITIAL_SLIDES } from './constants';
-import { SlideData } from './types';
-import Slide from './components/Slide';
+import { SLIDES as INITIAL_SLIDES } from './constants.tsx';
+import { SlideData } from './types.ts';
+import Slide from './components/Slide.tsx';
 
 const STORAGE_KEY = 'afdb_slides_persistence_v1';
 const AUTH_PASSWORD = 'Beachzipper66$';
@@ -105,6 +105,10 @@ const App: React.FC = () => {
     setErrorMsg(null);
 
     try {
+      if (!process.env.API_KEY) {
+        throw new Error("Missing Gemini API Key. Please set the API_KEY environment variable in Vercel.");
+      }
+
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       const headings = slide.sections?.map(s => s.heading).filter(Boolean).join(', ') || '';
