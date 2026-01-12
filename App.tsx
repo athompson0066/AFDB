@@ -4,6 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 import { SLIDES as INITIAL_SLIDES } from './constants.tsx';
 import { SlideData } from './types.ts';
 import Slide from './components/Slide.tsx';
+import ChatBot from './components/ChatBot.tsx';
 
 const STORAGE_KEY = 'afdb_slides_persistence_v1';
 const AUTH_PASSWORD = 'Beachzipper66$';
@@ -239,7 +240,15 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (showPasswordModal) return; // Disable keys during password prompt
+      // Robust check to ignore global hotkeys if user is focused on any input or interactive field
+      const activeElement = document.activeElement;
+      const isTyping = 
+        activeElement instanceof HTMLInputElement || 
+        activeElement instanceof HTMLTextAreaElement || 
+        (activeElement instanceof HTMLElement && activeElement.isContentEditable);
+                       
+      if (isTyping || showPasswordModal) return;
+
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
         nextSlide();
       } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
@@ -341,7 +350,7 @@ const App: React.FC = () => {
       {showAdmin && isAuthoringMode && (
         <div className="fixed inset-0 z-[100] flex justify-end">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowAdmin(false)}></div>
-          <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
+          <div className="relative w-full max-md:w-full w-md bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
             <div className="p-6 border-b border-slate-100 flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-bold text-slate-900">Admin Section</h2>
@@ -514,6 +523,9 @@ const App: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Chat Bot Agent */}
+      <ChatBot />
     </div>
   );
 };
