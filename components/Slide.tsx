@@ -119,16 +119,7 @@ const Slide: React.FC<SlideProps> = ({ slide, isActive, index, currentIndex, tot
               </div>
             </div>
           ))}
-          {structured.chartType === 'grouped-bar' && (
-            <div className="flex gap-6 mt-4 text-xs font-medium text-slate-400">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-sm"></div> Primary Metric
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-slate-300 rounded-sm"></div> Comparative Metric
-              </div>
-            </div>
-          )}
+          {/* Legend removed as requested: User does not understand primary/comparative metric labels */}
         </div>
       );
     }

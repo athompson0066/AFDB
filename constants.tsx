@@ -19,14 +19,14 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         content: [
-          { label: 'AfDB', value: 'African Development Bank. Potential funding and archive source; project partner.' },
-          { label: 'BNPL', value: 'Buy Now, Pay Later. Financing mechanism (potential primary driver).' },
-          { label: 'CSF', value: 'Critical Success Factor. Key element boosting digital inclusion.' },
+          { label: 'AfDB', value: 'African Development Bank. Potential funding and project partner.' },
+          { label: 'BNPL', value: 'Buy Now, Pay Later. Financing mechanism identified as a potential primary driver.' },
+          { label: 'CSF', value: 'Critical Success Factor. Key element reliably boosting digital inclusion.' },
           { label: 'FX', value: 'Foreign Exchange. Risk factor in financial modeling.' },
           { label: 'Glo', value: 'Globacom. Mobile Network Operator (MNO) in Nigeria.' },
           { label: 'GSMA', value: 'Global System for Mobile Communications Association. Data source.' },
-          { label: 'ITU', value: 'International Telecommunication Union. Data source for baselines.' },
-          { label: 'KPIs', value: 'Key Performance Indicators. Metrics for program success.' },
+          { label: 'ITU', value: 'International Telecommunication Union. Data source for quantifying regional baselines.' },
+          { label: 'KPIs', value: 'Key Performance Indicators. Metrics for measuring the pilot program’s success.' },
           { label: 'LoIs', value: 'Letters of Intent. Non-binding agreement to secure partner commitment.' },
           { label: 'MNO', value: 'Mobile Network Operator (e.g., MTN, Airtel, Glo, 9mobile).' },
           { label: 'NBS', value: 'National Bureau of Statistics (Nigeria). Data source.' },
@@ -46,7 +46,7 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: 'Background and Objectives',
-        content: 'Across Sub-Saharan Africa, the smartphone has become the single most powerful gateway to digital participation, yet the region continues to experience the world’s widest gap between mobile network coverage and actual usage. According to GSMA mobile connectivity index report, as of 2025, roughly 59 percent of people in Sub-Saharan Africa are covered by a mobile-network signal but remain offline, while 15 percent still live outside any mobile connectivity footprint. This dis-connect stems less from network absence than from barriers of device affordability and user capability. For many households, even an entry-level 4G handset can represent more than 80 percent of monthly income.'
+        content: 'Across Sub-Saharan Africa, the smartphone has become the single most powerful gateway to digital participation, yet the region continues to experience the world’s widest gap between mobile network coverage and actual usage. As of 2025, roughly 59 percent of people in Sub-Saharan Africa are covered by a mobile-network signal but remain offline. This disconnect stems less from network absence than from barriers of device affordability and user capability. For many households, even an entry-level 4G handset can represent more than 80 percent of monthly income.'
       }
     ]
   },
@@ -57,7 +57,7 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://assets.sunnewsonline.com/2018/09/CELL-PHONES-1.jpg',
     sections: [
       {
-        content: 'The digital landscape itself is evolving rapidly. 4G is expected to reach about half of all mobile connections by 2030, while early 50 deployments will begin adding an estimated $10 billion in annual economic value. However, those gains depend on affordable, capable devices reaching first-time users rather than remaining concentrated among urban elites. At the same time, the price of connectivity has declined globally, yet Africa’s data and device costs remain among the highest relative to average consumer income.'
+        content: 'The digital landscape is evolving rapidly. 4G is expected to reach about half of all mobile connections by 2030, while early 5G deployments will begin adding an estimated $10 billion in annual economic value. However, those gains depend on affordable, capable devices reaching first-time users rather than remaining concentrated among urban elites. Currently, Africa’s data and device costs remain among the highest relative to average consumer income.'
       }
     ]
   },
@@ -68,7 +68,7 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://technext24.com/wp-content/uploads/2024/08/5.jpg',
     sections: [
       {
-        content: 'Nigeria provides an ideal starting point for such intervention. It is Africa’s largest smartphone market and one of its most dynamic digital economies, yet the country still has more than 80 million unconnected adults. It has a relatively low cost of mobile data at about $0.38 per 1 gigabyte (on par with China, Brazil and Ghana) and yet it has one of the lowest mobile data consumption per capita. This suggests that there is head room for driving significantly more smartphone adoption even at current mobile data costs.'
+        content: 'Nigeria provides an ideal starting point. It is Africa’s largest smartphone market, yet still has more than 80 million unconnected adults. It has a relatively low cost of mobile data at about $0.38 per 1 gigabyte, yet one of the lowest mobile data consumption per capita. This suggests significant headroom for driving smartphone adoption if structural barriers like affordability are addressed.'
       }
     ]
   },
@@ -80,7 +80,7 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: 'Target Outcomes',
-        content: 'Accordingly, the program’s core objective is to design and validate a scalable, financially sustainable model for rapidly accelerating smartphone access—one that combines innovative financing (usage-based credit, BNPL or PAYGo mechanisms), efficient supply chains, and user-centric support systems. Through a structured Nigeria pilot, the project seeks to demonstrate measurable increases in smartphone penetration, usage intensity, and repayment performance.'
+        content: 'The program’s core objective is to design and validate a scalable, financially sustainable model for rapidly accelerating smartphone access. This combines innovative financing (usage-based credit, BNPL or PAYGo mechanisms), efficient supply chains, and user-centric support systems. The project seeks to demonstrate measurable increases in smartphone penetration, usage intensity, and repayment performance.'
       }
     ]
   },
@@ -93,10 +93,10 @@ export const SLIDES: SlideData[] = [
       {
         heading: '2.1 Overview of Workstreams',
         content: [
-          'Workstream 1: Diagnostic Scan of existing smartphone-inclusion efforts, affordability initiatives, and related digital-access programs.',
-          'Workstream 2: Success Factors identified demand side and supply side critical success factors (CSFs).',
-          'Workstream 3: Nigeria Pilot Blueprint specifies target states, population segments, sequencing, specs, price bands, and channels.',
-          'Workstream 4: Continental Market Archetype Framework clusters countries by digital maturity and credit readiness.'
+          'Workstream 1: Africa-Wide Diagnostic Scan of existing smartphone-inclusion efforts and affordability initiatives.',
+          'Workstream 2: Critical Success Factors (CSF) identification for demand and supply sides.',
+          'Workstream 3: Nigeria Pilot Blueprint specifying target states, population segments, and financial architecture.',
+          'Workstream 4: Continental Market Archetype Framework for scaling lessons across Africa.'
         ]
       }
     ]
@@ -108,12 +108,12 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://c76c7bbc41.mjedge.net/wp-content/uploads/tc/2020/04/three_men_using_mobile_phones.jpg',
     sections: [
       {
-        heading: '3.1 Secondary Data Sources',
-        content: 'Datasets provide the quantitative backbone for measuring smartphone penetration, income distribution, and network coverage. Reports such as the GSMA Mobile Economy Sub-Saharan Africa 2024 and the ITU Facts and Figures 2024 served as primary benchmarks.'
+        heading: '3.1 Data Gathering',
+        content: 'The methodology involved secondary data synthesis from global bodies like GSMA, ITU, AfDB, and the World Bank, alongside national regulators like the NCC and NBS.'
       },
       {
         heading: '3.2 Stakeholder Interviews',
-        content: 'A broad range of operators were interviewed: MNOs, insurance companies, aggregator/BNPL tech companies, OEMs, and pay as you go solar / smartphone financing companies. Others included banks, credit guarantee companies and a global public goods entity.'
+        content: 'Broad range of operators interviewed: MNOs, insurance companies, aggregator/BNPL tech companies, OEMs, and PAYGo solar providers. Selected for their strong interest in expanding smartphone penetration.'
       }
     ]
   },
@@ -124,14 +124,14 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZ7rFxKhx_67EsJ2fHD_6wc3RgpnI4S2_Jg&s',
     sections: [
       {
-        content: 'Africa faces a critical connectivity deficit. Internet usage is at 38%, significantly below the global average of 68%. High-income countries in comparison are at 93%. Closing this gap is not just a social goal but a fundamental economic imperative.'
+        content: 'Africa faces a critical connectivity deficit. Internet usage is at 38%, significantly below the global average of 68%. Closing this gap is a fundamental economic imperative. The mobile ecosystem contributed $220 billion (7.7% of GDP) in 2024, projected to rise to $270 billion by 2030.'
       },
       {
-        heading: 'SDG Benefits',
+        heading: 'Socioeconomic Upliftment',
         content: [
-          'Poverty Reduction: In Senegal, 3G access linked to 14% increase in household consumption and 10% decline in extreme poverty.',
-          'Employment opportunities: Stimulating labor force participation especially among women and rural households.',
-          'Economic Value: Ecosystem contributing $220 billion (7.7% of GDP) in 2024.'
+          'Poverty Reduction: 3G access linked to 14% increase in household consumption and 10% decline in extreme poverty (e.g., Senegal).',
+          'Employment: Stimulating labor force participation among women and rural households.',
+          'Infrastructure: Smartphones transform network coverage into actual economic value in the hands of consumers.'
         ]
       }
     ]
@@ -143,21 +143,15 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://techafricanews.com/wp-content/uploads/2019/11/man-with-mobile-phone.jpg',
     sections: [
       {
-        heading: 'Figure 1: Largest Broadband Usage Gap',
-        content: {
-          type: 'chart',
-          chartType: 'grouped-bar',
-          data: [
-            { label: 'Sub-Saharan Africa', value: 23, secondaryValue: 83, unit: '%' },
-            { label: 'Europe', value: 85, secondaryValue: 95, unit: '%' },
-            { label: 'Asia Pacific', value: 72, secondaryValue: 90, unit: '%' },
-            { label: 'Latin America', value: 70, secondaryValue: 92, unit: '%' },
-            { label: 'North America', value: 88, secondaryValue: 99, unit: '%' }
-          ]
-        }
+        heading: 'Sub-Saharan Africa Usage Disparity',
+        content: [
+          { label: 'Network Coverage', value: '83% of population' },
+          { label: 'Actual Usage', value: '23% of population' },
+          { label: 'The Usage Gap', value: '60% (The highest in the world)' }
+        ]
       },
       {
-        content: 'Sub-Saharan Africa (SSA) is the only region where mobile broadband coverage significantly exceeds usage. The current usage gap is 60%—the highest in the world. Adults in rural areas are approximately 49% less likely to use mobile internet than their urban counterparts.'
+        content: 'SSA is the only region where coverage significantly exceeds usage. This usage gap reflects the fact that millions live within range of a signal but cannot afford the devices or lack the literacy to use them. Adults in rural areas are approximately 49% less likely to use mobile internet than their urban counterparts.'
       }
     ]
   },
@@ -168,11 +162,11 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://technext24.com/wp-content/uploads/2025/01/Nigerians-Mobile-Network-Affordability.jpg',
     sections: [
       {
-        content: 'The average 4G smartphone in SSA costs $71. In contrast, a feature phone is 10 times cheaper at $6. $71 is about 80-90% of the average monthly income for the poorest 20% in Sub-Saharan Africa. Only about 10% of the working age population in Nigeria meets the income threshold for outright purchase.'
+        content: 'The average 4G smartphone in SSA costs $71, roughly 80-90% of the monthly income for the poorest 20%. In contrast, a feature phone is 10 times cheaper at $6. This explains why the gap in usage remains difficult to close without intervention.'
       },
       {
-        heading: 'Policy Pressures',
-        content: 'High import tariffs and VAT raise the price by 20%-30% or more. Senegal example: up to $100 on top of base price. Transsion and other brands currently control significant market share but room for improvement remains.'
+        heading: 'Structural Barriers',
+        content: 'High import tariffs and VAT raise prices by 20%-30%. EIB data suggests only 10% of Nigeria’s working-age population meets the income threshold for outright smartphone purchase. Affordability mechanisms are critical for larger population segments.'
       }
     ]
   },
@@ -183,12 +177,12 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://mediaserver.responsesource.com/press-release/132321/OYA_DEVICE_SCREEN_08.jpg',
     sections: [
       {
-        heading: 'Language Barriers',
-        content: 'Digital literacy is built on language literacy. To close the gap, manufacturers must incorporate native languages. AI offers a unique opportunity for voice-activated apps in local African languages.'
+        heading: 'Digital Literacy Barriers',
+        content: 'Language literacy prevents users from effectively utilizing smartphones. App developers must incorporate native languages. AI offers unique opportunities for voice-activated apps to overcome these twin barriers.'
       },
       {
-        heading: 'Gender Gap',
-        content: 'The gap between men and women\'s access to mobile internet stands at a stubborn 32% in SSA. Additional constraints limiting usage by women need to be better understood and provided for in the program design.'
+        heading: 'The Gender Gap',
+        content: 'Access to mobile internet for women lags men by 32% in SSA. Constraints including culture and affordability limit usage by women, requiring specific focus in program design.'
       }
     ]
   },
@@ -199,7 +193,7 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://dailypost.ng/wp-content/uploads/2022/05/telephone-.jpeg',
     sections: [
       {
-        heading: 'Figure 2: Cost of 1GB Data Worldwide',
+        heading: 'Cost of 1GB Data (USD)',
         content: {
           type: 'chart',
           data: [
@@ -214,7 +208,7 @@ export const SLIDES: SlideData[] = [
         }
       },
       {
-        content: 'Nigeria has about the same cost of data per gigabyte ($0.38) as Ghana but lags behind in consumption. Findings do not suggest data cost is a significant barrier compared to device affordability.'
+        content: 'Nigeria has a relatively low cost of data ($0.38/GB), suggesting that data cost is NOT a primary barrier. The bottleneck remains device affordability and digital literacy.'
       }
     ]
   },
@@ -225,11 +219,11 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://newsverge.com/wp-content/uploads/2019/07/mobile-phones.jpg',
     sections: [
       {
-        heading: 'Strategic Interventions',
+        heading: 'Action for Funders/Governments',
         content: [
-          { label: 'Device Affordability', value: 'Eliminating duties and tariffs on entry-level smart phones. Localize assembly/manufacturing. Use Free Trade zones.' },
-          { label: 'Digital Engagement', value: 'Smartphones with native language voice prompts. Focus on Mobile money, learning, and Telemedicine.' },
-          { label: 'Gender', value: 'Shorten time between first (man) and second (woman) device purchase in households.' }
+          { label: 'Device Affordability', value: 'Eliminate duties/tariffs on entry-level phones. Localize assembly/manufacturing to drive out costs.' },
+          { label: 'Digital Engagement', value: 'Support native language accessibility and voice prompts. Focus on Mobile money, learning, and Telemedicine.' },
+          { label: 'Gender', value: 'Shorten time between household purchases. Cultural and affordability barriers must be addressed.' }
         ]
       }
     ]
@@ -243,8 +237,8 @@ export const SLIDES: SlideData[] = [
       {
         heading: 'Table 2: Regional Investment Priorities',
         content: [
-          { label: 'Central Africa', value: 'Barrier: Coverage Gap (39% outside). Priority: Hard Infrastructure CAPEX (Towers, Fiber).' },
-          { label: 'Southern, West, & East Africa', value: 'Barrier: Usage Gap (12% outside). Priority: Consumer-Facing Policies (Affordability, Literacy, Gender).' }
+          { label: 'Central Africa', value: 'Barrier: Coverage Gap (39% affected). Priority: Hard Infrastructure CAPEX (Towers, Fiber).' },
+          { label: 'Southern, West, & East Africa', value: 'Barrier: Usage Gap (12% outside coverage). Priority: Consumer-Facing Policies (Affordability, Literacy, Gender).' }
         ]
       }
     ]
@@ -256,11 +250,11 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://xplicitmode.com/wp-content/uploads/2024/11/using-voice-commands-on-a-smartphone.jpg',
     sections: [
       {
-        heading: 'Summary of Solutions',
+        heading: 'Key Roles in Device Financing',
         content: [
-          { label: 'Intelligra', value: 'Aggregator / BNPL Tech engine provider for peri-urban and urban consumers.' },
-          { label: 'Yellow Solar', value: 'Pay-as-you-go solar and smartphone underwriter for off-grid/low-income customers.' },
-          { label: 'MTN', value: 'Leading MNO offering operator-led instalment plans bundled with service contracts.' },
+          { label: 'Intelligra', value: 'Aggregator/BNPL engine provider for peri-urban and urban consumers.' },
+          { label: 'Yellow Solar', value: 'PAYGO solar and smartphone underwriter for off-grid/low-income customers.' },
+          { label: 'MTN', value: 'Leading MNO offering operator-led plans and bundled services.' },
           { label: 'Leadway Insurance', value: 'Credit Guarantee and Product Bundling model for rural farmers.' }
         ]
       }
@@ -274,14 +268,14 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: '6.3.1 Business Model',
-        content: 'Buy-Now-Pay-Later (BNPL) scheme where cost is bundled with airtime and insurance, spread over typically 6 to 12 months. Integrates entire value chain: OEMs, MNOs, and financial institutions. Reports 200,000+ subscribers in Nigeria, Tanzania, and Rwanda.'
+        content: 'Buy-Now-Pay-Later (BNPL) scheme where cost is bundled with airtime and insurance. Integrates entire value chain (OEMs, MNOs, Financiers). Reports 200,000+ subscribers across three countries.'
       },
       {
         heading: '6.3.2 Key Features',
         content: [
-          'Underwriting: Customers pre-qualified based on network history using anonymized telco data.',
-          'Daily Repayments: Structured as small amounts deducted daily from mobile money accounts.',
-          'Device Locking: Critical safeguard via proprietary two-app ecosystem.'
+          'Underwriting: Customers pre-qualified based on network history (telco data as credit score substitute).',
+          'Daily Repayments: Affordable amounts deducted daily from mobile money accounts to reduce risk.',
+          'Device Locking: Proprietary technology manages default risk.'
         ]
       }
     ]
@@ -294,14 +288,14 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: '6.4.1 Business Model',
-        content: 'Initially established as PAYGo solar provider, Yellow leverages operational infrastructure for smartphone financing. Serving 800,000 families across Malawi, Madagascar, DRC, Rwanda, Zambia, Uganda, and Nigeria.'
+        content: 'Hybrid model established as PAYGo solar provider, expanding into smartphone financing. Serves unbanked customers in remote and peri-urban areas. Active in seven countries.'
       },
       {
         heading: '6.4.2 Key Features',
         content: [
-          'Sweet Spot: Identified $100–$120 price range as ideal for durability and financing margins.',
-          'Interest Rates: Effective APR of 80–100% due to depreciation and default risk.',
-          'Underwriting: Agent-led process with high-touch verification in less mature markets.'
+          'Risk: Yellow takes on full credit risk; firm settles directly with retailers.',
+          'Underwriting: High-touch, agent-led process using underwriters and guarantors.',
+          'Pricing: identified $100–$120 as the "sweet spot" to avoid breakage and default risks associated with low-end devices.'
         ]
       }
     ]
@@ -314,14 +308,14 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: '6.5.1 Business Model',
-        content: 'MTN leverages its balance sheet to secure extended credit windows directly with OEMs (90 to 120 days). It then provides a shorter, 60-day credit window to its device financier partners. Aims to scale to 200,000–300,000 devices per year.'
+        content: 'MTN acts as the central pillar, connecting OEMs, Financiers, and Retail networks. Uses its balance sheet to secure extended credit windows (90-120 days), lowering finance costs for consumers.'
       },
       {
         heading: '6.5.2 Key Features',
         content: [
-          'Targeted Outreach: Actively campaigns to existing feature phone customers to upgrade.',
-          'Retail Integration: Device financiers stock and refill devices in existing retail stores.',
-          'Service Bundling: Fixed price includes data, voice, and free access to apps like Facebook Basics.'
+          'Credit Scoring: Cross-references applicants against internal data (e.g., MTN XtraTime).',
+          'Targeted Outreach: Campaigns to existing feature phone users to upgrade.',
+          'Device Locking: Third-party technology varies in cost ($4 to $15 per device).'
         ]
       }
     ]
@@ -334,7 +328,7 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: 'Unique Behaviors Observed',
-        content: 'MTN noted seasonal sale of smartphones by farming communities in the Northern region (April to September) to buy seeds, followed by re-purchase during harvest. Financing solutions must be tailored to these cash-flow cycles. Also noted low appetite for health/life insurance bundling due to cultural beliefs.'
+        content: 'Seasonal smartphone sales in Northern Nigeria (April-Sept) for farming needs, followed by re-purchase during harvest. Financing solutions could be tailored to these cycles. Preference for data and digital access over health/life insurance bundling.'
       }
     ]
   },
@@ -346,11 +340,11 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: '6.6.1 Overview',
-        content: 'Strategically invested in agricultural sector. Transitioning from area-yield index insurance (AYII) to accurate, specific parametric insurance via smartphones. Provides digital traceability and secure digital identity for farmers.'
+        content: 'Focuses on rural farmers, bundling smartphones with parametric climate-smart insurance. Smartphones provide digital traceability and identity, critical for accessing future credit.'
       },
       {
         heading: '6.6.2 Key Features',
-        content: 'Leadway provides a partial credit guarantee (20-30% first loss) to Micro Finance bank/Fintech partners. This lowers the lender\'s risk and unlocks scarce capital. Repayment timed to coincide with harvest cycles.'
+        content: 'Provides a partial credit guarantee (20-30% first loss) to unlock scarce MFB capital. Smartphones are pre-loaded with Leadway applications for mandatory crop insurance.'
       }
     ]
   },
@@ -361,12 +355,12 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://www.geopoll.com/wp-content/uploads/2021/04/woman-showing-phone_small_2.jpg',
     sections: [
       {
-        heading: 'Value Proposition Matrix',
+        heading: 'Partner Value Proposition',
         content: [
           { label: 'Leadway Assurance', value: 'Credit Risk Guarantee & Product Bundling. Provides first-loss layer.' },
-          { label: 'MFBs / Fintechs', value: 'Asset Financing and Repayment Infrastructure. Manages loan origination.' },
-          { label: 'Smartphone OEMs', value: 'Supply and Device-Lock Technology. Provides discounted devices.' },
-          { label: 'Energy Partners', value: 'Charging and Energy Access (DAERS/SE4ALL) for rural farmers.' }
+          { label: 'MFBs / Fintechs', value: 'Asset Financing and Repayment Infrastructure. Manages origination.' },
+          { label: 'Smartphone OEMs', value: 'Supply and Device-Lock Technology. Discounted devices.' },
+          { label: 'DAERS/SE4ALL', value: 'Charging and Energy Access. Ensures devices remain powered.' }
         ]
       }
     ]
@@ -380,15 +374,15 @@ export const SLIDES: SlideData[] = [
       {
         heading: '7.1 Cross Cutting Insights',
         content: [
-          'Open architecture involving multiple participants (MNOs, OEMs, YellowSolar, Leadway).',
-          'Incorporate alternative credit scoring for thin file consumers.',
-          'Align repayment with informal income cycles (daily mobile money deductions).',
-          'Rural needs such as electricity must be incorporated into the design.'
+          'Design open architecture involving multiple direct and indirect participants.',
+          'Incorporate alternative credit scoring for thin-file consumers.',
+          'Align repayment structures with informal daily income cycles.',
+          'Incorporate access to electricity into the rural design.'
         ]
       },
       {
         heading: '7.2 Architecture Implications',
-        content: 'Deploy AFDB funds strategically within the risk stack to mobilize private capital. Minimize reliance on subsidies. Align deposit structures and repayment cycles to consumer income.'
+        content: 'Use blended finance strategically (AfDB funds in risk stack). Eliminate upstream costs like duties. Product bundles create stronger and stickier value propositions.'
       }
     ]
   },
@@ -400,7 +394,7 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: 'Market Sizing',
-        content: 'Relatively high device costs and interest rates currently constrain existing programs. A reasonable base target for this program would be that at least 30% of the 80 million unconnected adult Nigerians (about 24 million people) migrate to smartphones by the end of year 5.'
+        content: 'Base target: migrate at least 30% of the 80 million unconnected adult Nigerians (about 24 million people) to smartphones by the end of year 5. Current programs are constrained by high device costs and interest rates.'
       }
     ]
   },
@@ -411,11 +405,11 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/11/black-woman-typing-on-mobile-phone-during-night-2023-08-11-18-03-01-utc-1024x683.jpg',
     sections: [
       {
-        heading: '8.2.1 Desirable Specifications',
+        heading: 'Demand-Side Success Factors',
         content: [
           { label: 'Network', value: 'Multi-sim, 4G LTE enabled, Wi-Fi 802.11ac, Bluetooth, GPS.' },
-          { label: 'Display/OS', value: '≥5.5–6.0ʺ, HD+ (≈720×1600), Android 14 or above.' },
-          { label: 'Battery', value: '≥4 000 mAh (ideally 5 000 mAh), USB-C port.' },
+          { label: 'Display/OS', value: '≥5.5–6.0ʺ, HD+ display, Android 14 or above.' },
+          { label: 'Battery', value: '≥4 000 mAh, USB-C port, ideally removable.' },
           { label: 'Storage', value: 'Minimum 3 GB RAM, Micro SD slot.' }
         ]
       }
@@ -428,37 +422,34 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://www.dhl.com/discover/adobe/dynamicmedia/deliver/dm-aid--bedc2cf4-3af6-41ba-8120-882cf6d77248/what-this-means-for-businesses.png?preferwebp=true&quality=82',
     sections: [
       {
-        heading: '8.2.3 Disposable Income % Required',
+        heading: 'Daily Disposable Income Analysis',
         content: [
-          { label: '$1.39 DDI (Informal)', value: 'Requires 2160.0% of DDI for $30 phone purchase.' },
-          { label: '$2.78 DDI (Informal)', value: 'Requires 1080.0% of DDI for $30 phone purchase.' },
-          { label: '$9.72 DDI (Formal)', value: 'Requires 308.6% of DDI for $30 phone purchase.' },
-          { label: '$27.78 DDI (Formal)', value: 'Requires 108.0% of DDI for $30 phone purchase.' }
+          { label: '$1.39 DDI', value: 'Over 2000% of DDI required for outright purchase of $30 device.' },
+          { label: '$9.72 DDI', value: 'Only 308% of DDI required for the same $30 device purchase.' }
         ]
+      },
+      {
+        content: 'For informal workers, 10% of DDI is a useful maximum threshold for planning affordability. Lower DDI requires longer payback periods.'
       }
     ]
   },
   {
     id: 26,
     type: 'content',
-    title: 'Table 7: Payback period',
+    title: 'Total Cost of Ownership vs Payback Period',
     imageUrl: 'https://img.freepik.com/free-photo/person-reading-cell-phone-messages_23-2150409981.jpg?semt=ais_hybrid&w=740&q=80',
     sections: [
       {
-        heading: 'Number of Days @ 10% DDI',
-        content: {
-          type: 'chart',
-          chartType: 'grouped-bar',
-          data: [
-            { label: '$60 device', value: 432, secondaryValue: 86, unit: ' days' },
-            { label: '$70 device', value: 504, secondaryValue: 100, unit: ' days' },
-            { label: '$80 device', value: 576, secondaryValue: 115, unit: ' days' },
-            { label: '$100 device', value: 720, secondaryValue: 144, unit: ' days' }
-          ]
-        }
+        heading: 'Table 7: Payback period at various daily disposable incomes',
+        content: [
+          { label: '$60 TCO', value: '432 days to payback (at 10% DDI)' },
+          { label: '$70 TCO', value: '504 days to payback (at 10% DDI)' },
+          { label: '$80 TCO', value: '576 days to payback (at 10% DDI)' },
+          { label: '$100 TCO', value: '720 days to payback (at 10% DDI)' }
+        ]
       },
       {
-        content: 'Primary metric: $1.39 DDI earners. Comparative: $6.94 DDI earners. For lowest income earners, a multi-year subscription is more applicable.'
+        content: 'For the lowest income earners ($1.39 DDI), a multi-year device subscription is potentially more applicable for driving adoption. Standard 6-12 month BNPL finance becomes more feasible as income rises.'
       }
     ]
   },
@@ -470,11 +461,11 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         content: [
-          'Open program to multiple participants to go TO the consumer.',
-          'Eliminate/reduce upstream costs (customs duties/tariffs). Shaves 10% off cost.',
-          'Low initial deposits (10%-20%). Where possible, no initial deposits.',
-          'Daily or weekly mobile wallet deductions to align with cash flow.',
-          'Digital repayment tracking and remote device lock/shutdown to reduce default.'
+          'Go to the consumer where they are; don’t force them to come to you.',
+          'Eliminate customs duties/tariffs on entry-level 4G phones (shaves ~10%).',
+          'Plan for low initial deposits (10%-20%) or zero upfront where possible.',
+          'Daily or weekly deductions aligning with informal economy cash flows.',
+          'Deploy AFDB funds in the risk stack to mobilize private sector capital.'
         ]
       }
     ]
@@ -486,8 +477,8 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://img.globalcitizen.org/SKvbUWKmTU76MrP_exggwCW5U2cmwxwLZonMnUhU/1600x900%2Ffilters%3Aquality%2885%29%3Afocal%281500%2C600%29%2Fhttps%3A%2F%2Fmedia.globalcitizen.org%2Fd3%2F49%2Fd349fddc-30d5-4483-a941-9d260d76f161%2Frawpixel-woman-using-phone-unsplash-hero.jpg',
     sections: [
       {
-        heading: 'BNPL Model',
-        content: 'Built upon blended financing powered by AFDB’s credit guarantee, technology-driven risk mitigation, and collaboration. More applicable for consumers with a minimum $5 daily disposable income (Likely monthly wage earners).'
+        heading: 'BNPL Model Overview',
+        content: 'Built upon blended financing powered by AFDB’s credit guarantee and technology-driven risk mitigation. Most applicable for consumers with a minimum $5 daily disposable income, likely monthly wage earners.'
       },
       {
         heading: 'Participants',
@@ -504,10 +495,10 @@ export const SLIDES: SlideData[] = [
       {
         heading: 'Mitigation Strategies',
         content: [
-          { label: 'Inertia & Friction', value: '10% downpayment, daily manageable deductions, preload social/edu apps.' },
-          { label: 'Scale & Default', value: 'Tiered underwriting, DMS (locking/disabling), include offline acquirers.' },
+          { label: 'Consumer Inertia', value: 'Lower downpayment (10% of cost). Daily manageable deductions.' },
+          { label: 'Scale & Default', value: 'Implement Tiered underwriting. Include device management systems (DMS).' },
           { label: 'Reliability', value: 'Cross-Channel Credit Reporting. Mandate real-time reporting of defaults.' },
-          { label: 'Collaboration', value: 'Shared KPIs to force collaboration toward the set goal.' }
+          { label: 'Collaboration', value: 'Evaluate all partners on the same set of KPIs to force collaboration.' }
         ]
       }
     ]
@@ -520,11 +511,11 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: 'Subscription Model',
-        content: 'Aimed at low-income earners for whom standard BNPL terms pose a barrier. Flips adoption intent from ownership to a lease. Requires only one key player (OEM or MNO) to take balance sheet risk supported by low interest financing.'
+        content: 'Flips adoption intent from ownership to a lease. Aimed at low-income earners for whom standard BNPL poses a barrier. Requires entry-level 4G devices priced below $30.'
       },
       {
-        heading: 'Optimizing Uptake',
-        content: 'Offer zero upfront costs, simple tiered pricing, bundled services (data, maintenance), and regular upgrades every 5 years.'
+        heading: 'Business Engine',
+        content: 'Zero upfront costs, tiered pricing, and bundled services. Can be profitable through low procurement costs, ancillary revenue (ads, insurance), and high customer lifetime value.'
       }
     ]
   },
@@ -537,10 +528,10 @@ export const SLIDES: SlideData[] = [
       {
         heading: 'Mitigation Strategies',
         content: [
-          { label: 'Inertia & Distrust', value: 'No upfront cost. Single all-inclusive daily price (e.g. N100/day).' },
-          { label: 'Payment Default', value: 'Auto-debit, micro-savings pockets, USSD approval mechanisms.' },
-          { label: 'Asset Management', value: 'Strong retrieval rewards (instant data boost). Upgrade bonuses.' },
-          { label: 'Device Condition', value: '“Health Score” app inside phone tracking battery/scratches.' }
+          { label: 'Consumer Distrust', value: 'All-inclusive single price (e.g., N100/day). No hidden charges.' },
+          { label: 'Payment Default', value: 'Auto-debit, USSD approval, micro-savings pockets.' },
+          { label: 'Asset Management', value: 'Strong reinforcement with guaranteed rewards for returning old devices.' },
+          { label: 'Device Condition', value: 'Condition bonus at upgrade. "Health Score" app inside phone.' }
         ]
       }
     ]
@@ -552,12 +543,12 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://d27735ao2xxhhe.cloudfront.net/blog/pro/money-transfer-shortcut-every-nigerian-in-malta-should-know-600x400692da57f2352e1764599167.png',
     sections: [
       {
-        heading: '10.1 Coverage-Led Logic',
-        content: 'Phased roll out primarily driven by density of 4G coverage and penetration deficit at State level. Based on current map, 4G coverage is concentrated in Southern and Central States.'
+        heading: '10.1 Coverage-Led Phasing',
+        content: 'Phased roll-out driven by density of 4G coverage and penetration deficit. Concentration in Southern and Central States. Strategy focuses on high-coverage states where penetration among adults is still less than 100%.'
       },
       {
-        heading: '10.2 Selection Process',
-        content: 'Recommended using smartphone penetration by State to determine rollout priority. States with dense 4G coverage but penetration < 100 per 100 people are primary targets.'
+        heading: '10.2 Targeted Pilot Groups',
+        content: 'Pilot Group 1 focuses on high-coverage, low-penetration states. Pilot Group 2 focuses on 3G-dominant states for broader inclusion.'
       }
     ]
   },
@@ -568,16 +559,21 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://oneacrefund.org/sites/default/files/styles/banner_large_desktop/public/2025-09/KEN_6954%20%281%29.jpg?h=edb91006&itok=ghPXu-KO',
     sections: [
       {
-        heading: 'High Coverage, Low Penetration',
+        heading: 'High Coverage, Low Penetration (Included Pilot States)',
         content: [
-          { label: 'Lagos', value: 'Target: 885,894 consumers. (Penetration: 144.8)' },
-          { label: 'Kano', value: 'Target: 3,580,226 consumers. (Penetration: 61.9)' },
-          { label: 'Abia', value: 'Target: 745,497 consumers. (Penetration: 70.1)' },
-          { label: 'Rivers', value: 'Target: 1,014,887 consumers. (Penetration: 78.7)' }
+          { label: 'Kano', value: 'Penetration: 61.9 | Target: 3,580,226' },
+          { label: 'Kaduna', value: 'Penetration: 85.5 | Target: 786,034' },
+          { label: 'Imo', value: 'Penetration: 62.0 | Target: 1,312,682' },
+          { label: 'Abia', value: 'Penetration: 70.1 | Target: 745,497' },
+          { label: 'Enugu', value: 'Penetration: 69.7 | Target: 885,894' },
+          { label: 'Cross River', value: 'Penetration: 51.6 | Target: 1,271,213' },
+          { label: 'Akwa Ibom', value: 'Penetration: 58.0 | Target: 1,594,387' },
+          { label: 'Osun', value: 'Penetration: 89.6 | Target: 298,834' },
+          { label: 'Anambra', value: 'Penetration: 68.8 | Target: 1,204,194' }
         ]
       },
       {
-        content: 'Total Addressable Target for Group 1: 14,186,563 consumers.'
+        content: 'Exclusion Criteria: In accordance with the report, states with penetration rates above 100 (Lagos, FCT, Ogun, Oyo, Edo, Delta) were excluded from the initial pilot targeting to focus on the unconnected.'
       }
     ]
   },
@@ -590,14 +586,14 @@ export const SLIDES: SlideData[] = [
       {
         heading: '3G-Dominant States',
         content: [
-          { label: 'Niger', value: 'Target: 476,115 consumers. (Penetration: 88.4)' },
           { label: 'Bauchi', value: 'Target: 2,657,975 consumers. (Penetration: 45.1)' },
           { label: 'Ebonyi', value: 'Target: 1,047,086 consumers. (Penetration: 45.4)' },
+          { label: 'Gombe', value: 'Target: 885,871 consumers. (Penetration: 58.7)' },
           { label: 'Adamawa', value: 'Target: 942,502 consumers. (Penetration: 68.8)' }
         ]
       },
       {
-        content: 'Total Addressable Target for Group 2: 8,965,789 consumers.'
+        content: 'Total Addressable Target for Group 2: ~8,965,789 consumers.'
       }
     ]
   },
@@ -608,8 +604,8 @@ export const SLIDES: SlideData[] = [
     imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/07/a-young-beautiful-african-market-woman-feeling-hap-2022-12-22-23-45-51-utc-scaled.jpeg',
     sections: [
       {
-        heading: '10.5 Mobility & Workforce',
-        content: 'Youth aged 20-30 comprise 40% of SSA workforce but 60% of drivers in mobility/delivery platforms. Motorcycle imports set to double by 2030. Mobility platforms provide loans and depend on smartphones for management. Win-win alignment.'
+        heading: '10.5 Mobility & Drivers',
+        content: 'Youth aged 20-30 comprise 40% of SSA workforce but 60% of drivers. Mobility platforms (motorcycle/delivery) provide ideal entry points as they depend on smartphones for business. Win-win alignment for on-boarding youth.'
       }
     ]
   },
@@ -622,29 +618,21 @@ export const SLIDES: SlideData[] = [
       {
         heading: 'Hub and Spokes Framework',
         content: [
-          { label: 'Central (Hub)', value: 'Overarching PMO, Common KPIs, participant selection, publishing performance.' },
-          { label: 'Individual (Spokes)', value: 'Individual project office, company-specific KPIs, risk/interest tiering.' }
+          { label: 'Central (Hub)', value: 'Overarching PMO, Common KPIs, participant selection, and performance transparency.' },
+          { label: 'Individual (Spokes)', value: 'Individual project office management. Freedom to create risk/interest tiers.' }
         ]
-      },
-      {
-        content: 'Central Hub intervenes to redeploy blended finance based on run-rate of KPI performance.'
       }
     ]
   },
   {
     id: 37,
     type: 'content',
-    title: 'Portfolio Guarantee Stack',
+    title: 'Monitoring & Evaluation',
     imageUrl: 'https://qz.com/cdn-cgi/image/width=1920,quality=85,format=auto/https://assets.qz.com/media/f4bed222a47062c42ef0d27563ca6931.jpg',
     sections: [
       {
-        heading: 'Risk Layering',
-        content: [
-          'Senior Protection: AfDB AAA guarantees layered above market support.',
-          'First Loss: OEMs, MNOs, and aggregators absorb initial losses.',
-          'Subsidy Layer: MNOs leverage balance sheets to reduce borrower costs.',
-          'Participating Lenders: DFIs, Banks, and Fintechs extend affordable credit.'
-        ]
+        heading: 'Accountability Structure',
+        content: 'Analogous to a central traffic control tower. Individual participants have independence to structure operations but overarching performance is centrally managed via shared KPIs. Central Hub intervenes to redeploy funds based on run-rates.'
       }
     ]
   },
@@ -657,10 +645,10 @@ export const SLIDES: SlideData[] = [
       {
         heading: 'Bibliography & Figures',
         content: [
-          'GSMA Mobile Economy Sub-Saharan Africa 2024.',
-          'ITU Facts and Figures 2024.',
-          'World Bank, Taxes and Parafiscal Fees 2024.',
-          'Figure 1-6: Coverage, Cost, Process Simulations, and Density maps.'
+          'The Mobile Connectivity Index (GSMA).',
+          'Taxes and Parafiscal Fees (World Bank 2024).',
+          'Measuring Digital Development (ITU).',
+          'The Cost of 1GB Data in 237 Countries (BestBroadbandDeals.co.uk).'
         ]
       }
     ]
