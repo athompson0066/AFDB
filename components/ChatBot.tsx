@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 
-const BOT_IMAGE = "https://images.squarespace-cdn.com/content/v1/631ba8eed2196a6795698665/6d0d06ce-e8a5-434e-a633-a4893841b6a3/2022-08-10-Trinet-Henderson-Tiara-1485.jpg";
+const BOT_IMAGE = "http://aiolosmedia.42web.io/wp-content/uploads/2025/11/lindas-300x300.jpeg";
 const BOT_NAME = "Linda Quaynor";
 
 interface Message {
