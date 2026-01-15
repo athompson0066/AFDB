@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { SlideData, SectionContent, ChartItem } from '../types';
 
 interface SlideProps {
@@ -11,9 +11,23 @@ interface SlideProps {
   isAuthoringMode: boolean;
   isGenerating?: boolean;
   onRegenerate?: () => void;
+  onUpdate?: (updates: Partial<SlideData>) => void;
+  onReset?: () => void;
 }
 
-const Slide: React.FC<SlideProps> = ({ slide, isActive, index, currentIndex, totalSlides, isAuthoringMode, isGenerating, onRegenerate }) => {
+const Slide: React.FC<SlideProps> = ({ 
+  slide, 
+  isActive, 
+  index, 
+  currentIndex, 
+  totalSlides, 
+  isAuthoringMode, 
+  isGenerating, 
+  onRegenerate,
+  onUpdate,
+  onReset
+}) => {
+  const [isEditingContent, setIsEditingContent] = useState(false);
   const offset = index - currentIndex;
   
   const baseClasses = `
@@ -119,7 +133,6 @@ const Slide: React.FC<SlideProps> = ({ slide, isActive, index, currentIndex, tot
               </div>
             </div>
           ))}
-          {/* Legend removed as requested: User does not understand primary/comparative metric labels */}
         </div>
       );
     }
@@ -135,19 +148,6 @@ const Slide: React.FC<SlideProps> = ({ slide, isActive, index, currentIndex, tot
           <p className="text-sm font-medium animate-pulse tracking-wide">Refining Scene Geometry...</p>
         </div>
       ) : null}
-
-      {isAuthoringMode && slide.generatedImageUrl && !isGenerating && isActive && (
-        <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            onRegenerate?.();
-          }}
-          className="absolute top-4 right-4 z-30 bg-white/10 hover:bg-white/30 backdrop-blur-md p-2 rounded-full border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
-          title="Regenerate this image"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
-        </button>
-      )}
 
       <img 
         src={currentImageUrl} 
@@ -165,56 +165,185 @@ const Slide: React.FC<SlideProps> = ({ slide, isActive, index, currentIndex, tot
     </div>
   );
 
-  if (slide.type === 'cover') {
-    return (
-      <div className={baseClasses} style={transformStyles}>
-        <ImageColumn />
-        <div className="w-full md:w-1/2 h-1/2 md:h-full bg-white flex flex-col justify-center px-8 md:px-16 space-y-6">
-          <div className="space-y-2">
-            <p className="text-blue-600 font-bold uppercase tracking-widest text-sm">Official Report</p>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-              {slide.title}
-            </h1>
-          </div>
-          <h2 className="text-2xl md:text-3xl text-slate-600 font-medium">
-            {slide.subtitle}
-          </h2>
-          <div className="pt-8 border-t border-slate-100 space-y-2">
-            <p className="text-slate-500 italic">{slide.author}</p>
-            <p className="text-slate-400 font-semibold">{slide.date}</p>
-          </div>
+  const EditorView = () => (
+    <div className="flex flex-col h-full">
+      <div className="flex items-center justify-between mb-8 border-b border-slate-100 pb-4">
+        <h2 className="text-xl font-bold text-slate-800">Edit Slide Content</h2>
+        <div className="flex gap-2">
+            <button 
+                onClick={() => {
+                  if (confirm("Restore this slide to its original project default?")) {
+                    onReset?.();
+                  }
+                }}
+                className="bg-slate-100 text-slate-600 px-4 py-2 rounded-xl text-sm font-bold hover:bg-slate-200 transition-all flex items-center gap-2"
+                title="Revert to initial constant values"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                Restore Defaults
+            </button>
+            <button 
+                onClick={() => setIsEditingContent(false)}
+                className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-500 transition-all"
+            >
+                Finish Editing
+            </button>
         </div>
       </div>
-    );
-  }
+
+      <div className="space-y-6 pb-20">
+        <div className="space-y-2">
+          <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Slide Title</label>
+          <input 
+            type="text" 
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-bold text-lg"
+            value={slide.title}
+            onChange={(e) => onUpdate?.({ title: e.target.value })}
+          />
+        </div>
+
+        {slide.type === 'cover' && (
+          <>
+            <div className="space-y-2">
+                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Subtitle</label>
+                <textarea 
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                rows={3}
+                value={slide.subtitle}
+                onChange={(e) => onUpdate?.({ subtitle: e.target.value })}
+                />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Author / Organization</label>
+                    <input 
+                        type="text" 
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm"
+                        value={slide.author || ''}
+                        onChange={(e) => onUpdate?.({ author: e.target.value })}
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Date</label>
+                    <input 
+                        type="text" 
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm"
+                        value={slide.date || ''}
+                        onChange={(e) => onUpdate?.({ date: e.target.value })}
+                    />
+                </div>
+            </div>
+          </>
+        )}
+
+        <div className="space-y-2">
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Manual Image URL Override</label>
+            <input 
+                type="text" 
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-xs font-mono"
+                placeholder="https://..."
+                value={slide.imageUrl}
+                onChange={(e) => onUpdate?.({ imageUrl: e.target.value, generatedImageUrl: undefined })}
+            />
+        </div>
+
+        {slide.sections?.map((section, sIdx) => (
+          <div key={sIdx} className="p-4 bg-slate-50 border border-slate-100 rounded-2xl space-y-4">
+            <div className="space-y-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Section Heading</label>
+              <input 
+                type="text" 
+                className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm font-semibold text-blue-800"
+                value={section.heading || ''}
+                onChange={(e) => {
+                  const newSections = [...(slide.sections || [])];
+                  newSections[sIdx] = { ...newSections[sIdx], heading: e.target.value };
+                  onUpdate?.({ sections: newSections });
+                }}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Section Content</label>
+              {typeof section.content === 'string' ? (
+                <textarea 
+                  className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm leading-relaxed"
+                  rows={4}
+                  value={section.content}
+                  onChange={(e) => {
+                    const newSections = [...(slide.sections || [])];
+                    newSections[sIdx] = { ...newSections[sIdx], content: e.target.value };
+                    onUpdate?.({ sections: newSections });
+                  }}
+                />
+              ) : (
+                <div className="p-3 bg-blue-50 rounded-lg border border-blue-100 text-[10px] font-bold text-blue-500 uppercase">
+                  Complex content (Lists/Charts/Tables) must be edited via global config import for safety.
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const ContentView = () => (
+    <>
+      <div className="flex items-start justify-between">
+        <h2 className={`text-3xl md:text-5xl font-bold text-slate-900 mb-8 border-b-4 border-blue-600 pb-4 inline-block w-fit tracking-tight`}>
+          {slide.title}
+        </h2>
+        {isAuthoringMode && isActive && (
+          <button 
+            onClick={() => setIsEditingContent(true)}
+            className="p-2 bg-slate-100 hover:bg-blue-100 rounded-xl text-slate-400 hover:text-blue-600 transition-all group/btn"
+            title="Edit Slide Content"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:rotate-12 transition-transform"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+          </button>
+        )}
+      </div>
+
+      {slide.type === 'cover' && (
+        <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
+            <h3 className="text-2xl md:text-4xl text-slate-600 font-medium leading-tight">
+                {slide.subtitle}
+            </h3>
+            <div className="pt-12 space-y-3 border-t border-slate-200">
+                <p className="text-slate-800 font-bold text-lg">{slide.author}</p>
+                <p className="text-slate-500 font-medium tracking-widest uppercase text-sm">{slide.date}</p>
+            </div>
+        </div>
+      )}
+      
+      <div className="space-y-8">
+        {slide.sections?.map((section, idx) => (
+          <div key={idx} className="space-y-3">
+            {section.heading && (
+              <h3 className="text-xl font-bold text-blue-800 flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                {section.heading}
+              </h3>
+            )}
+            
+            {renderContent(section.content)}
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12 pt-12 border-t border-slate-100 text-slate-400 text-sm italic">
+        For client internal purposes only. Not for external publication.
+      </div>
+    </>
+  );
 
   return (
     <div className={baseClasses} style={transformStyles}>
       <ImageColumn />
       <div className="w-full md:w-1/2 h-[70vh] md:h-full bg-white overflow-y-auto custom-scrollbar flex flex-col px-8 md:px-16 py-12 md:py-24">
-        <div className="max-w-2xl mx-auto w-full">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 border-b-4 border-blue-600 pb-4 inline-block w-fit">
-            {slide.title}
-          </h2>
-          
-          <div className="space-y-8">
-            {slide.sections?.map((section, idx) => (
-              <div key={idx} className="space-y-3">
-                {section.heading && (
-                  <h3 className="text-xl font-bold text-blue-800 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                    {section.heading}
-                  </h3>
-                )}
-                
-                {renderContent(section.content)}
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 pt-12 border-t border-slate-100 text-slate-400 text-sm italic">
-            For client internal purposes only. Not for external publication.
-          </div>
+        <div className="max-w-2xl mx-auto w-full h-full">
+          {isEditingContent && isAuthoringMode ? <EditorView /> : <ContentView />}
         </div>
       </div>
     </div>
