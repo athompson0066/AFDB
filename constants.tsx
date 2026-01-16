@@ -435,7 +435,7 @@ export const SLIDES: SlideData[] = [
     id: 26,
     type: 'content',
     title: 'Total Cost of Ownership vs Payback Period',
-    imageUrl: 'https://img.freepik.com/free-photo/person-reading-cell-phone-messages_23-2150409981.jpg?semt=ais_hybrid&w=740&q=80',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2023/06/Mobile-phone.jpg',
     sections: [
       {
         heading: 'Table 7: Payback period at various daily disposable incomes',
@@ -451,7 +451,7 @@ export const SLIDES: SlideData[] = [
     id: 27,
     type: 'content',
     title: 'Critical Success Factors',
-    imageUrl: 'https://images.unsplash.com/photo-1554224155-1696413575b9?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2023/11/Smartphone-users-1.jpg',
     sections: [
       {
         heading: 'Strategic Pillars for Pilot Success',
@@ -470,7 +470,7 @@ export const SLIDES: SlideData[] = [
     id: 28,
     type: 'content',
     title: 'BNPL Model Overview',
-    imageUrl: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2022/08/Mobile-Payment-Africa.jpg',
     sections: [
       {
         heading: 'Model Specifications',
@@ -486,7 +486,7 @@ export const SLIDES: SlideData[] = [
     id: 29,
     type: 'content',
     title: 'Table 8: Model 1 Risks',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/01/Business-Data-Analytics.jpg',
     sections: [
       {
         heading: 'Mitigation Strategies',
@@ -503,7 +503,7 @@ export const SLIDES: SlideData[] = [
     id: 30,
     type: 'content',
     title: '9.2 Model 2: Smartphone-as-a-Service',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/06/Digital-Services-Africa.jpg',
     sections: [
       {
         heading: 'Subscription Model',
@@ -519,7 +519,7 @@ export const SLIDES: SlideData[] = [
     id: 31,
     type: 'content',
     title: 'Table 9: Model 2 Risks',
-    imageUrl: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/02/Security-and-Risk.jpg',
     sections: [
       {
         heading: 'Mitigation Strategies',
@@ -536,7 +536,7 @@ export const SLIDES: SlideData[] = [
     id: 32,
     type: 'content',
     title: '10. Roll-Out Strategy',
-    imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2023/12/Logistics-Tech-Nigeria.jpg',
     sections: [
       {
         heading: '10.1 Coverage-Led Phasing',
@@ -552,7 +552,7 @@ export const SLIDES: SlideData[] = [
     id: 33,
     type: 'content',
     title: 'Table 10: Pilot Group 1',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/05/Nigerian-Market.jpg',
     sections: [
       {
         heading: 'High Coverage, Low Penetration (Included Pilot States)',
@@ -578,7 +578,7 @@ export const SLIDES: SlideData[] = [
     id: 34,
     type: 'content',
     title: 'Table 11: Pilot Group 2',
-    imageUrl: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2021/09/Connectivity-Rural-Africa.jpg',
     sections: [
       {
         heading: '3G-Dominant States',
@@ -598,7 +598,7 @@ export const SLIDES: SlideData[] = [
     id: 35,
     type: 'content',
     title: 'Youth & Sector Targeting',
-    imageUrl: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/08/Young-Entrepreneurs-Africa.jpg',
     sections: [
       {
         heading: '10.5 Mobility & Drivers',
@@ -610,7 +610,7 @@ export const SLIDES: SlideData[] = [
     id: 36,
     type: 'content',
     title: 'Table 12: Governance',
-    imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2023/09/Governance-Board.jpg',
     sections: [
       {
         heading: 'Hub and Spokes Framework',
@@ -625,7 +625,7 @@ export const SLIDES: SlideData[] = [
     id: 37,
     type: 'content',
     title: 'Monitoring & Evaluation',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/03/KPI-Dashboard.jpg',
     sections: [
       {
         heading: 'Accountability Structure',
@@ -637,7 +637,7 @@ export const SLIDES: SlideData[] = [
     id: 38,
     type: 'content',
     title: 'Appendices',
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://techafricanews.com/wp-content/uploads/2020/11/Telecommunication-Infrastructure-Africa.jpg',
     sections: [
       {
         heading: 'Bibliography & Figures',
@@ -654,7 +654,7 @@ export const SLIDES: SlideData[] = [
     id: 39,
     type: 'content',
     title: 'Recommended next steps',
-    imageUrl: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/04/Business-Strategy-Execution.jpg',
     sections: [
       {
         content: [
@@ -671,7 +671,7 @@ export const SLIDES: SlideData[] = [
     id: 40,
     type: 'content',
     title: 'Conclusion',
-    imageUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://technext24.com/wp-content/uploads/2024/11/Digital-Access-Africa.jpg',
     sections: [
       {
         heading: 'Final Word',

@@ -5,9 +5,9 @@ import { SlideData } from './types.ts';
 import Slide from './components/Slide.tsx';
 import ChatBot from './components/ChatBot.tsx';
 
-// Incremented version to v2 to ensure new hardcoded updates (like slides 39/40) 
-// are visible to returning users whose browsers might be caching v1 state.
-const STORAGE_KEY = 'afdb_slides_persistence_v2';
+// Incremented version to v4 to ensure EVERY single image update (Slide 26 and others)
+// is correctly rendered for all users by bypassing stale local storage.
+const STORAGE_KEY = 'afdb_slides_persistence_v4';
 const AUTH_PASSWORD = 'Beachzipper66$';
 
 const App: React.FC = () => {
@@ -56,7 +56,7 @@ const App: React.FC = () => {
       id: newId,
       type: type,
       title: type === 'cover' ? 'New Project Phase' : 'Strategic Analysis',
-      imageUrl: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=1000&auto=format&fit=crop',
+      imageUrl: 'https://technext24.com/wp-content/uploads/2024/11/Digital-Access-Africa.jpg',
       subtitle: type === 'cover' ? 'Descriptive subtitle for this section' : undefined,
       author: type === 'cover' ? 'Project Working Group' : undefined,
       date: type === 'cover' ? 'Q3 2026' : undefined,
@@ -277,7 +277,7 @@ const App: React.FC = () => {
       {showPasswordModal && (
         <div className="fixed inset-0 z-[120] flex items-center justify-center p-6">
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-xl" onClick={() => setShowPasswordModal(false)}></div>
-          <div className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
+          <div className="relative w-full max-sm:w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
             <div className="p-8 text-center">
               <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
