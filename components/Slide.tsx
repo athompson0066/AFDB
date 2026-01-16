@@ -328,7 +328,7 @@ const Slide: React.FC<SlideProps> = ({
     if (slide.type === 'cover') {
       const authors = slide.author?.split('\n') || [];
       return (
-        <div className="flex flex-col justify-center h-full space-y-10 md:space-y-16">
+        <div className="flex flex-col justify-start h-full space-y-10 md:space-y-16 pt-24 md:pt-36">
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-6">
                 <div className="h-[2px] w-12 bg-blue-400"></div>
