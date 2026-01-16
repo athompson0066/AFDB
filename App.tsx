@@ -5,7 +5,9 @@ import { SlideData } from './types.ts';
 import Slide from './components/Slide.tsx';
 import ChatBot from './components/ChatBot.tsx';
 
-const STORAGE_KEY = 'afdb_slides_persistence_v1';
+// Incremented version to v2 to ensure new hardcoded updates (like slides 39/40) 
+// are visible to returning users whose browsers might be caching v1 state.
+const STORAGE_KEY = 'afdb_slides_persistence_v2';
 const AUTH_PASSWORD = 'Beachzipper66$';
 
 const App: React.FC = () => {
@@ -33,16 +35,13 @@ const App: React.FC = () => {
   useEffect(() => {
     const savedSlidesFull = localStorage.getItem(STORAGE_KEY + '_full_list');
     
-    setSlides(prev => {
-      if (savedSlidesFull) {
-        try {
-          return JSON.parse(savedSlidesFull);
-        } catch (e) {
-          console.error("Failed to parse full slide list", e);
-        }
+    if (savedSlidesFull) {
+      try {
+        setSlides(JSON.parse(savedSlidesFull));
+      } catch (e) {
+        console.error("Failed to parse full slide list", e);
       }
-      return prev;
-    });
+    }
   }, []);
 
   // Persistence: Save on slides change
@@ -110,6 +109,16 @@ const App: React.FC = () => {
       setSlides(prev => prev.map(s => s.id === id ? { ...original } : s));
       setErrorMsg("Slide content restored to original defaults.");
       setTimeout(() => setErrorMsg(null), 3000);
+    }
+  };
+
+  const resetAllToDefault = () => {
+    if (confirm("This will clear all local edits and restore the entire presentation to project defaults. Continue?")) {
+      setSlides(INITIAL_SLIDES);
+      setCurrentSlide(0);
+      localStorage.removeItem(STORAGE_KEY + '_full_list');
+      setErrorMsg("Presentation reset to project defaults.");
+      setTimeout(() => setErrorMsg(null), 4000);
     }
   };
 
@@ -366,6 +375,14 @@ const App: React.FC = () => {
                   <input type="file" accept=".json" onChange={importData} className="hidden" />
                 </label>
               </div>
+
+              <button 
+                onClick={resetAllToDefault}
+                className="w-full bg-red-50 border border-red-100 hover:bg-red-100 text-red-600 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset Entire Presentation
+              </button>
             </div>
 
             <div className="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4 bg-slate-50/30">
@@ -445,7 +462,7 @@ const App: React.FC = () => {
       {errorMsg && (
         <div className="fixed bottom-24 left-6 z-[80] animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="bg-slate-900/90 backdrop-blur text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span className="text-sm font-bold">{errorMsg}</span>
             <button onClick={() => setErrorMsg(null)} className="ml-2 hover:text-slate-300">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
