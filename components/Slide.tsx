@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { SlideData, SectionContent, ChartItem } from '../types';
 
@@ -62,6 +61,10 @@ const Slide: React.FC<SlideProps> = ({
 
   const renderContent = (content: any) => {
     if (typeof content === 'string') {
+      const isHtml = /<[a-z][\s\S]*>/i.test(content);
+      if (isHtml) {
+        return <div className="text-slate-600 leading-relaxed text-lg prose prose-blue max-w-none" dangerouslySetInnerHTML={{ __html: content }} />;
+      }
       return <p className="text-slate-600 leading-relaxed text-lg">{content}</p>;
     }
 
@@ -140,8 +143,27 @@ const Slide: React.FC<SlideProps> = ({
     return null;
   };
 
+  const insertHtml = (sIdx: number, tag: string) => {
+    const newSections = [...(slide.sections || [])];
+    const currentContent = newSections[sIdx].content as string;
+    let newContent = '';
+    
+    if (tag === 'ul') {
+      newContent = `${currentContent}\n<ul class="list-disc pl-5 space-y-2">\n  <li>New Item</li>\n</ul>`;
+    } else if (tag === 'li') {
+      newContent = `${currentContent}\n  <li>New Item</li>`;
+    } else if (tag === 'b') {
+      newContent = `${currentContent}<b>Bold Text</b>`;
+    } else if (tag === 'i') {
+      newContent = `${currentContent}<i>Italic Text</i>`;
+    }
+
+    newSections[sIdx] = { ...newSections[sIdx], content: newContent };
+    onUpdate?.({ sections: newSections });
+  };
+
   const ImageColumn = () => (
-    <div className="w-full md:w-1/2 h-[30vh] md:h-full relative overflow-hidden shadow-2xl bg-slate-800 group">
+    <div className="w-full md:w-1/2 h-[30vh] md:h-full relative overflow-hidden shadow-2xl bg-slate-800 group vignette">
       {isGenerating ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-slate-900/80 z-20">
           <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
@@ -152,14 +174,17 @@ const Slide: React.FC<SlideProps> = ({
       <img 
         src={currentImageUrl} 
         alt={slide.title} 
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isGenerating ? 'opacity-30' : 'opacity-100'}`}
+        className={`absolute inset-0 w-full h-full object-cover animate-ken-burns transition-opacity duration-1000 ${isGenerating ? 'opacity-30' : 'opacity-100'}`}
       />
       
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-transparent"></div>
+      <div className="absolute inset-0 aurora-overlay opacity-30 pointer-events-none"></div>
+      <div className="absolute inset-0 shimmer-sweep"></div>
+      
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent"></div>
       
       <div className="absolute bottom-0 left-0 p-8 text-white z-10 hidden md:block">
-         <div className="bg-white/20 backdrop-blur-md rounded-lg p-4 inline-block border border-white/30">
-            <span className="text-sm font-semibold tracking-widest uppercase">Slide {index + 1} of {totalSlides}</span>
+         <div className="bg-white/10 backdrop-blur-xl rounded-lg p-4 inline-block border border-white/20 shadow-2xl">
+            <span className="text-sm font-bold tracking-widest uppercase text-blue-200 drop-shadow-md">Slide {index + 1} of {totalSlides}</span>
          </div>
       </div>
     </div>
@@ -213,12 +238,12 @@ const Slide: React.FC<SlideProps> = ({
                 onChange={(e) => onUpdate?.({ subtitle: e.target.value })}
                 />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
                 <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Author / Organization</label>
-                    <input 
-                        type="text" 
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Author / Organization & Contacts</label>
+                    <textarea 
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm"
+                        rows={4}
                         value={slide.author || ''}
                         onChange={(e) => onUpdate?.({ author: e.target.value })}
                     />
@@ -264,11 +289,22 @@ const Slide: React.FC<SlideProps> = ({
             </div>
 
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Section Content</label>
+              <div className="flex items-center justify-between">
+                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Section Content (HTML Supported)</label>
+                {typeof section.content === 'string' && (
+                  <div className="flex gap-1">
+                    <button onClick={() => insertHtml(sIdx, 'ul')} className="text-[9px] bg-slate-200 hover:bg-slate-300 px-1.5 py-0.5 rounded font-bold">UL</button>
+                    <button onClick={() => insertHtml(sIdx, 'li')} className="text-[9px] bg-slate-200 hover:bg-slate-300 px-1.5 py-0.5 rounded font-bold">LI</button>
+                    <button onClick={() => insertHtml(sIdx, 'b')} className="text-[9px] bg-slate-200 hover:bg-slate-300 px-1.5 py-0.5 rounded font-bold">B</button>
+                    <button onClick={() => insertHtml(sIdx, 'i')} className="text-[9px] bg-slate-200 hover:bg-slate-300 px-1.5 py-0.5 rounded font-bold">I</button>
+                  </div>
+                )}
+              </div>
+              
               {typeof section.content === 'string' ? (
                 <textarea 
-                  className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm leading-relaxed"
-                  rows={4}
+                  className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all text-sm leading-relaxed font-mono"
+                  rows={6}
                   value={section.content}
                   onChange={(e) => {
                     const newSections = [...(slide.sections || [])];
@@ -278,7 +314,7 @@ const Slide: React.FC<SlideProps> = ({
                 />
               ) : (
                 <div className="p-3 bg-blue-50 rounded-lg border border-blue-100 text-[10px] font-bold text-blue-500 uppercase">
-                  Complex content (Lists/Charts/Tables) must be edited via global config import for safety.
+                  Complex content (Charts/Tables) must be edited via global config import for safety.
                 </div>
               )}
             </div>
@@ -288,61 +324,116 @@ const Slide: React.FC<SlideProps> = ({
     </div>
   );
 
-  const ContentView = () => (
-    <>
-      <div className="flex items-start justify-between">
-        <h2 className={`text-3xl md:text-5xl font-bold text-slate-900 mb-8 border-b-4 border-blue-600 pb-4 inline-block w-fit tracking-tight`}>
-          {slide.title}
-        </h2>
-        {isAuthoringMode && isActive && (
-          <button 
-            onClick={() => setIsEditingContent(true)}
-            className="p-2 bg-slate-100 hover:bg-blue-100 rounded-xl text-slate-400 hover:text-blue-600 transition-all group/btn"
-            title="Edit Slide Content"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:rotate-12 transition-transform"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
-          </button>
-        )}
-      </div>
-
-      {slide.type === 'cover' && (
-        <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
-            <h3 className="text-2xl md:text-4xl text-slate-600 font-medium leading-tight">
-                {slide.subtitle}
-            </h3>
-            <div className="pt-12 space-y-3 border-t border-slate-200">
-                <p className="text-slate-800 font-bold text-lg">{slide.author}</p>
-                <p className="text-slate-500 font-medium tracking-widest uppercase text-sm">{slide.date}</p>
+  const ContentView = () => {
+    if (slide.type === 'cover') {
+      const authors = slide.author?.split('\n') || [];
+      return (
+        <div className="flex flex-col justify-center h-full space-y-10 md:space-y-16">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 mb-6">
+                <div className="h-[2px] w-12 bg-blue-400"></div>
+                <div className="text-blue-300 text-[10px] font-bold uppercase tracking-[0.3em]">
+                Strategic Advisory Framework
+                </div>
             </div>
-        </div>
-      )}
-      
-      <div className="space-y-8">
-        {slide.sections?.map((section, idx) => (
-          <div key={idx} className="space-y-3">
-            {section.heading && (
-              <h3 className="text-xl font-bold text-blue-800 flex items-center gap-2">
-                <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                {section.heading}
-              </h3>
-            )}
-            
-            {renderContent(section.content)}
+            <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight leading-[0.9]">
+              {slide.title.split(' and ').map((part, i) => (
+                <span key={i} className="block">
+                  {i > 0 && <span className="text-blue-400">& </span>}
+                  {part}
+                </span>
+              ))}
+            </h1>
           </div>
-        ))}
-      </div>
+          
+          <div className="space-y-6">
+            <p className="text-2xl md:text-4xl text-white font-light leading-snug border-l-8 border-blue-400 pl-8 py-2 max-w-xl">
+              {slide.subtitle}
+            </p>
+          </div>
 
-      <div className="mt-12 pt-12 border-t border-slate-100 text-slate-400 text-sm italic">
-        For client internal purposes only. Not for external publication.
-      </div>
-    </>
-  );
+          <div className="space-y-8 pt-12 border-t border-white/10">
+            <div className="space-y-4">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Expert Working Group
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {authors.map((auth, i) => {
+                   const cleanAuth = auth.replace('• ', '').trim();
+                   if (!cleanAuth) return null;
+                   const [name, email] = cleanAuth.split(' – ');
+                   return (
+                     <div key={i} className="group p-5 rounded-3xl bg-white/5 border border-white/10 shadow-sm hover:bg-white/10 hover:border-blue-400/50 hover:-translate-y-1 transition-all">
+                        <p className="font-extrabold text-white text-base mb-1">{name}</p>
+                        <p className="text-blue-300 text-[11px] font-medium tracking-tight opacity-70 group-hover:opacity-100 transition-opacity">{email}</p>
+                     </div>
+                   );
+                })}
+              </div>
+            </div>
+            
+            <div className="flex items-center justify-between pt-12 pb-24 md:pb-32">
+               <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-1">Project Cycle</span>
+                  <span className="text-lg font-black text-white">FY 2026/27</span>
+               </div>
+               <div className="flex flex-col items-end">
+                  <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-1">Publication Date</span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl font-black text-white bg-blue-600/30 px-4 py-2 rounded-2xl border border-blue-400/30 shadow-lg backdrop-blur-md">{slide.date}</span>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <>
+        <div className="flex items-start justify-between">
+          <h2 className={`text-3xl md:text-5xl font-bold text-slate-900 mb-8 border-b-4 border-blue-600 pb-4 inline-block w-fit tracking-tight`}>
+            {slide.title}
+          </h2>
+          {isAuthoringMode && isActive && (
+            <button 
+              onClick={() => setIsEditingContent(true)}
+              className="p-2 bg-slate-100 hover:bg-blue-100 rounded-xl text-slate-400 hover:text-blue-600 transition-all group/btn"
+              title="Edit Slide Content"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:rotate-12 transition-transform"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+            </button>
+          )}
+        </div>
+
+        <div className="space-y-8">
+          {slide.sections?.map((section, idx) => (
+            <div key={idx} className="space-y-3">
+              {section.heading && (
+                <h3 className="text-xl font-bold text-blue-800 flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                  {section.heading}
+                </h3>
+              )}
+              
+              {renderContent(section.content)}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 pt-12 border-t border-slate-100 text-slate-400 text-sm italic pb-12">
+          For client internal purposes only. Not for external publication.
+        </div>
+      </>
+    );
+  };
 
   return (
     <div className={baseClasses} style={transformStyles}>
       <ImageColumn />
-      <div className="w-full md:w-1/2 h-[70vh] md:h-full bg-white overflow-y-auto custom-scrollbar flex flex-col px-8 md:px-16 py-12 md:py-24">
-        <div className="max-w-2xl mx-auto w-full h-full">
+      <div className={`w-full md:w-1/2 h-[70vh] md:h-full ${slide.type === 'cover' ? 'bg-gradient-to-br from-[#001c3d] via-[#002a5c] to-[#00367a]' : 'bg-white'} overflow-y-auto custom-scrollbar flex flex-col px-8 md:px-20 py-12 md:py-24`}>
+        <div className="max-w-3xl mx-auto w-full h-full relative">
           {isEditingContent && isAuthoringMode ? <EditorView /> : <ContentView />}
         </div>
       </div>

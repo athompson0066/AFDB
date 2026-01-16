@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { SLIDES as INITIAL_SLIDES } from './constants.tsx';
@@ -18,6 +17,10 @@ const App: React.FC = () => {
   const [showAdmin, setShowAdmin] = useState(false);
   const [adminSearch, setAdminSearch] = useState('');
   
+  // Jump to slide state
+  const [isJumping, setIsJumping] = useState(false);
+  const [jumpInput, setJumpInput] = useState('');
+
   // Password Protection State
   const [isAuthoringMode, setIsAuthoringMode] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -48,22 +51,47 @@ const App: React.FC = () => {
   }, [slides]);
 
   // Slide Management Actions
-  const addSlide = () => {
+  const addSlide = (type: 'cover' | 'content' = 'content') => {
     const newId = Math.max(0, ...slides.map(s => s.id)) + 1;
     const newSlide: SlideData = {
       id: newId,
-      type: 'content',
-      title: 'New Strategic Slide',
+      type: type,
+      title: type === 'cover' ? 'New Project Phase' : 'Strategic Analysis',
       imageUrl: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=1000&auto=format&fit=crop',
-      sections: [
+      subtitle: type === 'cover' ? 'Descriptive subtitle for this section' : undefined,
+      author: type === 'cover' ? 'Project Working Group' : undefined,
+      date: type === 'cover' ? 'Q3 2026' : undefined,
+      sections: type === 'content' ? [
         {
           heading: 'Executive Summary',
           content: 'Add your strategic analysis and insights for this section here.'
         }
-      ]
+      ] : []
     };
     setSlides(prev => [...prev, newSlide]);
     setCurrentSlide(slides.length); 
+    setErrorMsg(`New ${type} slide added.`);
+    setTimeout(() => setErrorMsg(null), 2000);
+  };
+
+  const duplicateSlide = (id: number) => {
+    const index = slides.findIndex(s => s.id === id);
+    if (index === -1) return;
+    
+    const original = slides[index];
+    const newId = Math.max(0, ...slides.map(s => s.id)) + 1;
+    const duplicated: SlideData = {
+      ...JSON.parse(JSON.stringify(original)),
+      id: newId,
+      title: original.title + ' (Copy)'
+    };
+    
+    const newSlides = [...slides];
+    newSlides.splice(index + 1, 0, duplicated);
+    setSlides(newSlides);
+    setCurrentSlide(index + 1);
+    setErrorMsg("Slide duplicated successfully.");
+    setTimeout(() => setErrorMsg(null), 2000);
   };
 
   const deleteSlide = (id: number) => {
@@ -148,6 +176,16 @@ const App: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 >= 0 ? prev - 1 : prev));
   }, []);
 
+  const handleJumpSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const num = parseInt(jumpInput, 10);
+    if (!isNaN(num) && num >= 1 && num <= slides.length) {
+      setCurrentSlide(num - 1);
+    }
+    setIsJumping(false);
+    setJumpInput('');
+  };
+
   const handlePasswordSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (passwordInput === AUTH_PASSWORD) {
@@ -188,11 +226,14 @@ const App: React.FC = () => {
         toggleAuthoringMode();
       } else if (e.key.toLowerCase() === 'a' && isAuthoringMode) {
         setShowAdmin(prev => !prev);
+      } else if (e.key.toLowerCase() === 'g') {
+        setIsJumping(true);
+        setJumpInput((currentSlide + 1).toString());
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [nextSlide, prevSlide, isAuthoringMode, showPasswordModal]);
+  }, [nextSlide, prevSlide, isAuthoringMode, showPasswordModal, currentSlide]);
 
   const filteredSlides = slides.filter((s, idx) => 
     s.title.toLowerCase().includes(adminSearch.toLowerCase()) || 
@@ -285,13 +326,22 @@ const App: React.FC = () => {
             </div>
             
             <div className="p-4 bg-slate-50 space-y-3">
-              <button 
-                onClick={addSlide}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2 mb-2"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                Add New Slide
-              </button>
+              <div className="flex gap-2 mb-2">
+                <button 
+                  onClick={() => addSlide('content')}
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center gap-2"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  + Content
+                </button>
+                <button 
+                  onClick={() => addSlide('cover')}
+                  className="flex-1 bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                  + Cover
+                </button>
+              </div>
 
               <div className="relative">
                 <input 
@@ -362,6 +412,13 @@ const App: React.FC = () => {
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </button>
+                        <button 
+                          onClick={() => duplicateSlide(s.id)}
+                          className="p-1.5 hover:bg-blue-50 text-blue-400 rounded-lg transition-colors"
+                          title="Duplicate Slide"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        </button>
                       </div>
                       
                       <button 
@@ -431,9 +488,40 @@ const App: React.FC = () => {
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
-          <div className="px-4 text-slate-900 font-bold text-xs tracking-tight select-none min-w-[70px] text-center">
-            {currentSlide + 1} / {slides.length}
+          
+          <div className="min-w-[70px] flex justify-center">
+            {isJumping ? (
+              <form onSubmit={handleJumpSubmit} className="flex items-center gap-1">
+                <input
+                  autoFocus
+                  type="text"
+                  className="w-10 bg-slate-100 border border-slate-200 rounded px-1 py-0.5 text-center font-bold text-xs focus:ring-2 focus:ring-blue-500 outline-none text-blue-600"
+                  value={jumpInput}
+                  onChange={(e) => setJumpInput(e.target.value)}
+                  onBlur={() => setIsJumping(false)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') setIsJumping(false);
+                  }}
+                />
+                <span className="text-[10px] font-bold text-slate-400">/ {slides.length}</span>
+              </form>
+            ) : (
+              <button 
+                onClick={() => {
+                  setIsJumping(true);
+                  setJumpInput((currentSlide + 1).toString());
+                }}
+                className="px-4 text-slate-900 font-bold text-xs tracking-tight select-none text-center hover:text-blue-600 transition-colors group relative"
+                title="Click to jump to slide (Shortcut: G)"
+              >
+                {currentSlide + 1} / {slides.length}
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  Click to Jump
+                </span>
+              </button>
+            )}
           </div>
+
           <button 
             onClick={nextSlide}
             className={`p-3 rounded-full transition-all duration-300 ${currentSlide === slides.length - 1 ? 'opacity-0 scale-50 pointer-events-none' : 'text-slate-700 hover:bg-slate-100'}`}

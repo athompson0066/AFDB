@@ -1,4 +1,3 @@
-
 import { SlideData } from './types.ts';
 
 export const SLIDES: SlideData[] = [
@@ -6,8 +5,8 @@ export const SLIDES: SlideData[] = [
     id: 0,
     type: 'cover',
     title: 'Google and AFDB',
-    subtitle: 'Affordable Device Financing Model Project',
-    author: 'Report by CG&R Strategy LLC / Moharram & Partners',
+    subtitle: 'Abridged version of the Report by CG&R Strategy LLC / Moharram & Partners',
+    author: '• Juliet Anammah – janammah@cgandrstrategy.com\n• Linda Quaynor – lindaq@vircancapital.com\n• Mai Ali – maiali@moharram-partners.com',
     date: '1/08/2026',
     imageUrl: 'https://technext24.com/wp-content/uploads/2024/11/Literacy-affordability-slow-growth-of-global-mobile-internet-users-as-population-reaches-4.6-billion-1.jpg'
   },
@@ -65,7 +64,7 @@ export const SLIDES: SlideData[] = [
     id: 4,
     type: 'content',
     title: '1.3 Why Nigeria as Pilot',
-    imageUrl: 'https://technext24.com/wp-content/uploads/2024/08/5.jpg',
+    imageUrl: 'https://technext24.wpengine.com/wp-content/uploads/2024/08/5.jpg',
     sections: [
       {
         content: 'Nigeria provides an ideal starting point. It is Africa’s largest smartphone market, yet still has more than 80 million unconnected adults. It has a relatively low cost of mobile data at about $0.38 per 1 gigabyte, yet one of the lowest mobile data consumption per capita. This suggests significant headroom for driving smartphone adoption if structural barriers like affordability are addressed.'
@@ -80,7 +79,7 @@ export const SLIDES: SlideData[] = [
     sections: [
       {
         heading: 'Target Outcomes',
-        content: 'The program’s core objective is to design and validate a scalable, financially sustainable model for rapidly accelerating smartphone access. This combines innovative financing (usage-based credit, BNPL or PAYGo mechanisms), efficient supply chains, and user-centric support systems. The project seeks to demonstrate measurable increases in smartphone penetration, usage intensity, and repayment performance.'
+        content: 'The program’s core objective is to design a scalable, financially sustainable model for rapidly accelerating smartphone access. This combines innovative financing (usage-based credit, BNPL or PAYGo mechanisms), efficient supply chains, and user-centric support systems. The project seeks to demonstrate measurable increases in smartphone penetration, usage intensity, and repayment performance.'
       }
     ]
   },
@@ -95,8 +94,7 @@ export const SLIDES: SlideData[] = [
         content: [
           'Workstream 1: Africa-Wide Diagnostic Scan of existing smartphone-inclusion efforts and affordability initiatives.',
           'Workstream 2: Critical Success Factors (CSF) identification for demand and supply sides.',
-          'Workstream 3: Nigeria Pilot Blueprint specifying target states, population segments, and financial architecture.',
-          'Workstream 4: Continental Market Archetype Framework for scaling lessons across Africa.'
+          'Workstream 3: Nigeria Pilot Blueprint specifying target states, population segments, and financial architecture.'
         ]
       }
     ]
@@ -113,7 +111,7 @@ export const SLIDES: SlideData[] = [
       },
       {
         heading: '3.2 Stakeholder Interviews',
-        content: 'Broad range of operators interviewed: MNOs, insurance companies, aggregator/BNPL tech companies, OEMs, and PAYGo solar providers. Selected for their strong interest in expanding smartphone penetration.'
+        content: 'Broad range of operators interviewed: MNOs, insurance companies, aggregator/BNPL tech companies, OEMs, and PAYGo solar providers. Selected for their high interest in expanding smartphone penetration.'
       }
     ]
   },
@@ -166,7 +164,7 @@ export const SLIDES: SlideData[] = [
       },
       {
         heading: 'Structural Barriers',
-        content: 'High import tariffs and VAT raise prices by 20%-30%. EIB data suggests only 10% of Nigeria’s working-age population meets the income threshold for outright smartphone purchase. Affordability mechanisms are critical for larger population segments.'
+        content: 'High import tariffs and VAT raise prices by 20%-30%.'
       }
     ]
   },
@@ -221,9 +219,9 @@ export const SLIDES: SlideData[] = [
       {
         heading: 'Action for Funders/Governments',
         content: [
-          { label: 'Device Affordability', value: 'Eliminate duties/tariffs on entry-level phones. Localize assembly/manufacturing to drive out costs.' },
-          { label: 'Digital Engagement', value: 'Support native language accessibility and voice prompts. Focus on Mobile money, learning, and Telemedicine.' },
-          { label: 'Gender', value: 'Shorten time between household purchases. Cultural and affordability barriers must be addressed.' }
+          { label: 'Device Affordability', value: 'Eliminate duties/tariffs on entry-level phones. Localize assembly/manufacturing where feasible to drive out costs.' },
+          { label: 'Digital Engagement', value: 'Support native language accessibility and voice prompts. Focus on applications that drive immediate impact and productivity e.g Mobile money, learning, and Telemedicine.' },
+          { label: 'Gender', value: 'Offer the right financing model to help poor households afford more than one smartphone when transitioning from feature phones. This will increase access for women' }
         ]
       }
     ]
@@ -246,7 +244,7 @@ export const SLIDES: SlideData[] = [
   {
     id: 15,
     type: 'content',
-    title: 'Table 3: Use Cases Overview',
+    title: 'Key Interviews',
     imageUrl: 'https://xplicitmode.com/wp-content/uploads/2024/11/using-voice-commands-on-a-smartphone.jpg',
     sections: [
       {
@@ -418,7 +416,7 @@ export const SLIDES: SlideData[] = [
   {
     id: 25,
     type: 'content',
-    title: 'Table 6: DDI Analysis',
+    title: 'Table 6: Daily disposable income (DDI) Analysis',
     imageUrl: 'https://www.dhl.com/discover/adobe/dynamicmedia/deliver/dm-aid--bedc2cf4-3af6-41ba-8120-882cf6d77248/what-this-means-for-businesses.png?preferwebp=true&quality=82',
     sections: [
       {
@@ -429,7 +427,7 @@ export const SLIDES: SlideData[] = [
         ]
       },
       {
-        content: 'For informal workers, 10% of DDI is a useful maximum threshold for planning affordability. Lower DDI requires longer payback periods.'
+        content: 'Using 10% of DDI as a measure of affordability, for lower income consumers even a $30 is still relatively expensive. For this population segment (estimated at 37% of total target) a typical 6 -12 month BNPL model will likely not drive adoption.'
       }
     ]
   },
@@ -444,28 +442,26 @@ export const SLIDES: SlideData[] = [
         content: [
           { label: '$60 TCO', value: '432 days to payback (at 10% DDI)' },
           { label: '$70 TCO', value: '504 days to payback (at 10% DDI)' },
-          { label: '$80 TCO', value: '576 days to payback (at 10% DDI)' },
-          { label: '$100 TCO', value: '720 days to payback (at 10% DDI)' }
+          { label: '$80 TCO', value: '576 days to payback (at 10% DDI)' }
         ]
-      },
-      {
-        content: 'For the lowest income earners ($1.39 DDI), a multi-year device subscription is potentially more applicable for driving adoption. Standard 6-12 month BNPL finance becomes more feasible as income rises.'
       }
     ]
   },
   {
     id: 27,
     type: 'content',
-    title: '8.3 Supply-Side Success',
-    imageUrl: 'https://img.globalcitizen.org/OKvWYJ-xbw4mRN-ZcEtGLZKxidgaRgQLLTKaRx5D/1600x900%2Ffilters%3Aquality%2885%29%3Afocal%28615%2C410%29%2Fhttps%3A%2F%2Fmedia.globalcitizen.org%2F9f%2F4d%2F9f4d1e5f-f859-4dba-8a80-d104c098187e%2F1230.jpeg',
+    title: 'Critical Success Factors',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-1696413575b9?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
+        heading: 'Strategic Pillars for Pilot Success',
         content: [
-          'Go to the consumer where they are; don’t force them to come to you.',
-          'Eliminate customs duties/tariffs on entry-level 4G phones (shaves ~10%).',
+          'Minimum order quantity commitment for OEMs to produce phones at or below $30',
+          'Retail / Distribution must go to the consumer where they are; don’t force them to come to you.',
+          'Eliminate customs duties/tariffs on entry-level 4G phones (shaves an estimated 10% in landed cost).',
           'Plan for low initial deposits (10%-20%) or zero upfront where possible.',
           'Daily or weekly deductions aligning with informal economy cash flows.',
-          'Deploy AFDB funds in the risk stack to mobilize private sector capital.'
+          'Deploy AFDB guarantees in the risk stack to mobilize private sector capital.'
         ]
       }
     ]
@@ -473,16 +469,16 @@ export const SLIDES: SlideData[] = [
   {
     id: 28,
     type: 'content',
-    title: '9.1 Model 1: Blended Finance',
-    imageUrl: 'https://img.globalcitizen.org/SKvbUWKmTU76MrP_exggwCW5U2cmwxwLZonMnUhU/1600x900%2Ffilters%3Aquality%2885%29%3Afocal%281500%2C600%29%2Fhttps%3A%2F%2Fmedia.globalcitizen.org%2Fd3%2F49%2Fd349fddc-30d5-4483-a941-9d260d76f161%2Frawpixel-woman-using-phone-unsplash-hero.jpg',
+    title: 'BNPL Model Overview',
+    imageUrl: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
-        heading: 'BNPL Model Overview',
-        content: 'Built upon blended financing powered by AFDB’s credit guarantee and technology-driven risk mitigation. Most applicable for consumers with a minimum $5 daily disposable income, likely monthly wage earners.'
+        heading: 'Model Specifications',
+        content: '<ul class="list-disc pl-5 space-y-2"><li>Built upon blended financing powered by AFDB’s credit guarantee and technology-driven risk mitigation.</li><li>Most applicable for consumers with a minimum $5 daily disposable income, likely monthly wage earners.</li></ul>'
       },
       {
         heading: 'Participants',
-        content: 'AfDB, Google, MNOs, Fintechs, OEMs, Distributors, Retailers, Aggregators, Credit guarantee companies, and Insurance.'
+        content: '<ul class="list-disc pl-5 space-y-2"><li>AfDB, Google, MNOs, Fintechs, OEMs, Distributors, Retailers, Aggregators, Credit guarantee companies, and Insurance.</li></ul>'
       }
     ]
   },
@@ -490,7 +486,7 @@ export const SLIDES: SlideData[] = [
     id: 29,
     type: 'content',
     title: 'Table 8: Model 1 Risks',
-    imageUrl: 'https://arkesel.com/wp-content/uploads/2024/09/83357.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'Mitigation Strategies',
@@ -507,7 +503,7 @@ export const SLIDES: SlideData[] = [
     id: 30,
     type: 'content',
     title: '9.2 Model 2: Smartphone-as-a-Service',
-    imageUrl: 'https://techafricanews.com/wp-content/uploads/2025/08/telecom-6.png',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'Subscription Model',
@@ -523,7 +519,7 @@ export const SLIDES: SlideData[] = [
     id: 31,
     type: 'content',
     title: 'Table 9: Model 2 Risks',
-    imageUrl: 'https://thebest.credit/wp-content/uploads/2025/08/cover-image-cover-1.png',
+    imageUrl: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'Mitigation Strategies',
@@ -540,7 +536,7 @@ export const SLIDES: SlideData[] = [
     id: 32,
     type: 'content',
     title: '10. Roll-Out Strategy',
-    imageUrl: 'https://d27735ao2xxhhe.cloudfront.net/blog/pro/money-transfer-shortcut-every-nigerian-in-malta-should-know-600x400692da57f2352e1764599167.png',
+    imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: '10.1 Coverage-Led Phasing',
@@ -556,7 +552,7 @@ export const SLIDES: SlideData[] = [
     id: 33,
     type: 'content',
     title: 'Table 10: Pilot Group 1',
-    imageUrl: 'https://oneacrefund.org/sites/default/files/styles/banner_large_desktop/public/2025-09/KEN_6954%20%281%29.jpg?h=edb91006&itok=ghPXu-KO',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'High Coverage, Low Penetration (Included Pilot States)',
@@ -573,7 +569,8 @@ export const SLIDES: SlideData[] = [
         ]
       },
       {
-        content: 'Exclusion Criteria: In accordance with the report, states with penetration rates above 100 (Lagos, FCT, Ogun, Oyo, Edo, Delta) were excluded from the initial pilot targeting to focus on the unconnected.'
+        heading: 'Exclusion Criteria',
+        content: 'In accordance with the report, states with penetration rates above 100 (Lagos, FCT, Ogun, Oyo, Edo, Delta) were excluded from the initial pilot targeting to focus on the unconnected.'
       }
     ]
   },
@@ -581,7 +578,7 @@ export const SLIDES: SlideData[] = [
     id: 34,
     type: 'content',
     title: 'Table 11: Pilot Group 2',
-    imageUrl: 'https://babbangona.com/wp-content/uploads/2025/05/image_fx-31--768x419.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: '3G-Dominant States',
@@ -601,7 +598,7 @@ export const SLIDES: SlideData[] = [
     id: 35,
     type: 'content',
     title: 'Youth & Sector Targeting',
-    imageUrl: 'https://techafricanews.com/wp-content/uploads/2023/07/a-young-beautiful-african-market-woman-feeling-hap-2022-12-22-23-45-51-utc-scaled.jpeg',
+    imageUrl: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: '10.5 Mobility & Drivers',
@@ -613,7 +610,7 @@ export const SLIDES: SlideData[] = [
     id: 36,
     type: 'content',
     title: 'Table 12: Governance',
-    imageUrl: 'https://i.natgeofe.com/n/fbbf43be-ed2f-4918-8d37-41d3b0d46dcb/02cellphonesfarmer.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'Hub and Spokes Framework',
@@ -628,11 +625,11 @@ export const SLIDES: SlideData[] = [
     id: 37,
     type: 'content',
     title: 'Monitoring & Evaluation',
-    imageUrl: 'https://qz.com/cdn-cgi/image/width=1920,quality=85,format=auto/https://assets.qz.com/media/f4bed222a47062c42ef0d27563ca6931.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'Accountability Structure',
-        content: 'Analogous to a central traffic control tower. Individual participants have independence to structure operations but overarching performance is centrally managed via shared KPIs. Central Hub intervenes to redeploy funds based on run-rates.'
+        content: 'Analogous to a central traffic control tower. Individual participants have independence to structure operations but overarching performance is centrally managed via shared KPIs. Central Hub intervenes to recommend corrective action based on run-rates.'
       }
     ]
   },
@@ -640,7 +637,7 @@ export const SLIDES: SlideData[] = [
     id: 38,
     type: 'content',
     title: 'Appendices',
-    imageUrl: 'https://images.pexels.com/photos/33418517/pexels-photo-33418517/free-photo-of-nigerian-man-in-traditional-attire-using-phone-outdoors.jpeg',
+    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000',
     sections: [
       {
         heading: 'Bibliography & Figures',
@@ -650,6 +647,35 @@ export const SLIDES: SlideData[] = [
           'Measuring Digital Development (ITU).',
           'The Cost of 1GB Data in 237 Countries (BestBroadbandDeals.co.uk).'
         ]
+      }
+    ]
+  },
+  {
+    id: 39,
+    type: 'content',
+    title: 'Recommended next steps',
+    imageUrl: 'https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=1000',
+    sections: [
+      {
+        content: [
+          '1. Secure MoUs from key participants',
+          '2. Develop a business plan for 1 year pilot phase and full 5 year country roll out',
+          '3. Test and adjust key assumptions',
+          '4. Set up PMO',
+          '5. Commence Pilot'
+        ]
+      }
+    ]
+  },
+  {
+    id: 40,
+    type: 'content',
+    title: 'Conclusion',
+    imageUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1000',
+    sections: [
+      {
+        heading: 'Final Word',
+        content: 'Access to technology is no longer a luxury—it is a human right. By bridging the usage gap in Nigeria, we unlock a future of infinite digital possibility for millions.'
       }
     ]
   }
