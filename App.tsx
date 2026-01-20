@@ -5,8 +5,7 @@ import { SlideData } from './types.ts';
 import Slide from './components/Slide.tsx';
 import ChatBot from './components/ChatBot.tsx';
 
-// Incremented version to v4 to ensure EVERY single image update (Slide 26 and others)
-// is correctly rendered for all users by bypassing stale local storage.
+// Storage version v4
 const STORAGE_KEY = 'afdb_slides_persistence_v4';
 const AUTH_PASSWORD = 'Beachzipper66$';
 
@@ -497,22 +496,25 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-6 right-6 flex items-center gap-4 z-50">
-        <div className="flex items-center gap-1 bg-white/90 backdrop-blur-lg px-2 py-2 rounded-full shadow-2xl border border-slate-200">
+      <div 
+        className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[90] transition-all duration-500"
+        style={{ transformStyle: 'preserve-3d', transform: 'translateZ(100px)' }}
+      >
+        <div className="flex items-center gap-1 bg-white/95 backdrop-blur-xl px-2 py-2 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200/50">
            <button 
             onClick={prevSlide}
-            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === 0 ? 'opacity-0 scale-50 pointer-events-none' : 'text-slate-700 hover:bg-slate-100'}`}
+            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === 0 ? 'opacity-20 scale-90 pointer-events-none' : 'text-slate-700 hover:bg-slate-100 active:scale-90'}`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           
-          <div className="min-w-[70px] flex justify-center">
+          <div className="min-w-[80px] flex justify-center">
             {isJumping ? (
-              <form onSubmit={handleJumpSubmit} className="flex items-center gap-1">
+              <form onSubmit={handleJumpSubmit} className="flex items-center gap-1 bg-slate-100 rounded-lg px-2 py-1 border border-blue-200 animate-in zoom-in-95 duration-200">
                 <input
                   autoFocus
                   type="text"
-                  className="w-10 bg-slate-100 border border-slate-200 rounded px-1 py-0.5 text-center font-bold text-xs focus:ring-2 focus:ring-blue-500 outline-none text-blue-600"
+                  className="w-8 bg-transparent border-none text-center font-black text-sm focus:ring-0 outline-none text-blue-600"
                   value={jumpInput}
                   onChange={(e) => setJumpInput(e.target.value)}
                   onBlur={() => setIsJumping(false)}
@@ -520,7 +522,7 @@ const App: React.FC = () => {
                     if (e.key === 'Escape') setIsJumping(false);
                   }}
                 />
-                <span className="text-[10px] font-bold text-slate-400">/ {slides.length}</span>
+                <span className="text-[10px] font-black text-slate-400">/ {slides.length}</span>
               </form>
             ) : (
               <button 
@@ -528,22 +530,20 @@ const App: React.FC = () => {
                   setIsJumping(true);
                   setJumpInput((currentSlide + 1).toString());
                 }}
-                className="px-4 text-slate-900 font-bold text-xs tracking-tight select-none text-center hover:text-blue-600 transition-colors group relative"
-                title="Click to jump to slide (Shortcut: G)"
+                className="px-4 text-slate-900 font-black text-sm tracking-tight select-none text-center hover:text-blue-600 transition-colors group relative flex flex-col items-center"
+                title="Jump to slide (G)"
               >
-                {currentSlide + 1} / {slides.length}
-                <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                  Click to Jump
-                </span>
+                <span className="leading-none">{currentSlide + 1}</span>
+                <span className="text-[9px] text-slate-400 leading-none mt-0.5 opacity-60">of {slides.length}</span>
               </button>
             )}
           </div>
 
           <button 
             onClick={nextSlide}
-            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === slides.length - 1 ? 'opacity-0 scale-50 pointer-events-none' : 'text-slate-700 hover:bg-slate-100'}`}
+            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === slides.length - 1 ? 'opacity-20 scale-90 pointer-events-none' : 'text-slate-700 hover:bg-slate-100 active:scale-90'}`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
           </button>
         </div>
       </div>
