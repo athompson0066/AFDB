@@ -33,6 +33,7 @@ const Slide: React.FC<SlideProps> = ({
     flex flex-col md:flex-row h-full w-full absolute inset-0
     transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]
     backface-hidden
+    ${isActive ? 'pointer-events-auto opacity-100 z-10' : 'pointer-events-none opacity-0 z-0'}
   `;
 
   let transformStyles: React.CSSProperties = {};
@@ -40,20 +41,12 @@ const Slide: React.FC<SlideProps> = ({
   if (isActive) {
     transformStyles = {
       transform: 'translateX(0) rotateY(0deg) scale(1)',
-      opacity: 1,
-      zIndex: 10,
-    };
-  } else if (offset > 0) {
-    transformStyles = {
-      transform: `translateX(${offset * 100}%) rotateY(-45deg) scale(0.8)`,
-      opacity: 0,
-      zIndex: 0,
     };
   } else {
+    // Determine rotation based on whether the slide is "ahead" or "behind"
+    const rotation = offset > 0 ? -45 : 45;
     transformStyles = {
-      transform: `translateX(${offset * 100}%) rotateY(45deg) scale(0.8)`,
-      opacity: 0,
-      zIndex: 0,
+      transform: `translateX(${offset * 100}%) rotateY(${rotation}deg) scale(0.85)`,
     };
   }
 

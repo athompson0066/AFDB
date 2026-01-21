@@ -176,11 +176,13 @@ const App: React.FC = () => {
     reader.readAsText(file);
   };
 
-  const nextSlide = useCallback(() => {
+  const nextSlide = useCallback((e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setCurrentSlide((prev) => (prev + 1 < slides.length ? prev + 1 : prev));
   }, [slides.length]);
 
-  const prevSlide = useCallback(() => {
+  const prevSlide = useCallback((e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     setCurrentSlide((prev) => (prev - 1 >= 0 ? prev - 1 : prev));
   }, []);
 
@@ -227,6 +229,7 @@ const App: React.FC = () => {
       if (isTyping || showPasswordModal) return;
 
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+        if (e.key === ' ') e.preventDefault();
         nextSlide();
       } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         prevSlide();
@@ -257,7 +260,7 @@ const App: React.FC = () => {
         ></div>
       </div>
 
-      <div className="flex-1 relative slide-container">
+      <div className="flex-1 relative slide-container overflow-hidden">
         {slides.map((slide, index) => (
           <Slide 
             key={slide.id} 
@@ -274,7 +277,7 @@ const App: React.FC = () => {
       </div>
 
       {showPasswordModal && (
-        <div className="fixed inset-0 z-[120] flex items-center justify-center p-6">
+        <div className="fixed inset-0 z-[130] flex items-center justify-center p-6">
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-xl" onClick={() => setShowPasswordModal(false)}></div>
           <div className="relative w-full max-sm:w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
             <div className="p-8 text-center">
@@ -320,7 +323,7 @@ const App: React.FC = () => {
       )}
 
       {showAdmin && isAuthoringMode && (
-        <div className="fixed inset-0 z-[100] flex justify-end">
+        <div className="fixed inset-0 z-[120] flex justify-end">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowAdmin(false)}></div>
           <div className="relative w-full max-md:w-full max-w-md bg-white h-full shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
             <div className="p-6 border-b border-slate-100 flex items-center justify-between">
@@ -470,7 +473,7 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <div className="fixed top-6 left-6 z-[70] flex flex-col gap-2">
+      <div className="fixed top-6 left-6 z-[110] flex flex-col gap-2">
         <div className="flex items-center gap-2">
           <button 
             onClick={toggleAuthoringMode}
@@ -497,13 +500,12 @@ const App: React.FC = () => {
       </div>
 
       <div 
-        className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[90] transition-all duration-500"
-        style={{ transformStyle: 'preserve-3d', transform: 'translateZ(100px)' }}
+        className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-[110] pointer-events-auto"
       >
         <div className="flex items-center gap-1 bg-white/95 backdrop-blur-xl px-2 py-2 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-slate-200/50">
            <button 
-            onClick={prevSlide}
-            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === 0 ? 'opacity-20 scale-90 pointer-events-none' : 'text-slate-700 hover:bg-slate-100 active:scale-90'}`}
+            onClick={(e) => prevSlide(e)}
+            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === 0 ? 'opacity-20 scale-90 pointer-events-none' : 'text-slate-700 hover:bg-slate-100 active:scale-90 pointer-events-auto'}`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
@@ -530,7 +532,7 @@ const App: React.FC = () => {
                   setIsJumping(true);
                   setJumpInput((currentSlide + 1).toString());
                 }}
-                className="px-4 text-slate-900 font-black text-sm tracking-tight select-none text-center hover:text-blue-600 transition-colors group relative flex flex-col items-center"
+                className="px-4 text-slate-900 font-black text-sm tracking-tight select-none text-center hover:text-blue-600 transition-colors group relative flex flex-col items-center pointer-events-auto"
                 title="Jump to slide (G)"
               >
                 <span className="leading-none">{currentSlide + 1}</span>
@@ -540,8 +542,8 @@ const App: React.FC = () => {
           </div>
 
           <button 
-            onClick={nextSlide}
-            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === slides.length - 1 ? 'opacity-20 scale-90 pointer-events-none' : 'text-slate-700 hover:bg-slate-100 active:scale-90'}`}
+            onClick={(e) => nextSlide(e)}
+            className={`p-3 rounded-full transition-all duration-300 ${currentSlide === slides.length - 1 ? 'opacity-20 scale-90 pointer-events-none' : 'text-slate-700 hover:bg-slate-100 active:scale-90 pointer-events-auto'}`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
           </button>
